@@ -1,0 +1,8 @@
+# On-device (target) component versions required by this compiler release.
+#
+# Update this file whenever a compiler release changes what it expects to be
+# installed on the target. One "<component> <operator> <version>" per line;
+# lines starting with '#' and blank lines are ignored.
+#
+
+tizen-action >= 1.10.3
