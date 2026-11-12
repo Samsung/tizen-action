@@ -1,0 +1,38 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Music_Search",
+  "type": "tidl",
+  "category": "Tizen.Action.Music",
+  "description": "Finds any Playable from the sentence without playing, to show, pick or pass on - Track, Album, Playlist, PodcastShow, PodcastEpisode, ArtistVideo. Play at once: Tv_Tizen.Action.Music_SearchAndPlay",
+  "allowedBackground": "true",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.UtteranceQuery"
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "return",
+      "result"
+    ],
+    "properties": {
+      "return": {
+        "type": "Tizen.Entity.Status",
+        "description": "Result wrapper returned by every action, carrying Success (whether the action was carried out, not whether it found anything) and Reason (empty on ordinary success; otherwise a prefix plus text - noop/clamped/partial/defaulted when Success is true, rejected/invalid/unsupported/unavailable when it is false)"
+      },
+      "result": {
+        "type": "array",
+        "description": "Base of every playable item: Title, Formats (audio/video; empty=unknown, video implies audio). A base(Playable) slot may omit TypeName - treat as untyped. Never Station or Artist",
+        "items": {
+          "base": "Tizen.Entity.Playable",
+          "description": "Base of every playable item: Title, Formats (audio/video; empty=unknown, video implies audio). A base(Playable) slot may omit TypeName - treat as untyped. Never Station or Artist"
+        }
+      }
+    }
+  },
+  "details": {
+    "appid": ""
+  }
+}

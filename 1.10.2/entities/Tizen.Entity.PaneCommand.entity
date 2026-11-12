@@ -1,0 +1,33 @@
+{
+  "typeName": "Tizen.Entity.PaneCommand",
+  "description": "One change to a pane: Operation (focus/sound_focus/make_primary/set_angle/close), target Pane (resend the entry Tv_Tizen.Action.Video_GetCurrent returned; its Id names it), and Angle for set_angle",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Operation",
+      "Pane"
+    ],
+    "properties": {
+      "Operation": {
+        "type": "string",
+        "description": "Change to make: focus, sound_focus, make_primary, set_angle (needs Angle) or close",
+        "enum": [
+          "focus",
+          "sound_focus",
+          "make_primary",
+          "set_angle",
+          "close"
+        ]
+      },
+      "Pane": {
+        "type": "Tizen.Entity.ContentPane",
+        "description": "One pane of multiview. Primary(size), Focused(command target), SoundFocus(audio) are independent flags; exactly one Focused, one SoundFocus. Set focus via Tv_Tizen.Action.Video_ControlPane"
+      },
+      "Angle": {
+        "type": "Tizen.Entity.ContentAngle",
+        "description": "An alternative camera angle. The list never includes the default feed. person_cam requires Subject. Match a request by Subject.Name, then Label, then AngleType; ask the user if still tied"
+      }
+    }
+  }
+}

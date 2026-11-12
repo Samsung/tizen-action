@@ -1,0 +1,38 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Browser_GetMedia",
+  "type": "tidl",
+  "category": "Tizen.Action.Browser",
+  "description": "Get the media currently playing in the page; absent when the page has none",
+  "allowedBackground": "false",
+  "requiresRunning": true,
+  "autoDispose": "false",
+  "requiredPrivileges": [
+    "http://tizen.org/privilege/mediacontroller.client"
+  ],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "properties": {}
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "return"
+    ],
+    "properties": {
+      "return": {
+        "type": "Tizen.Entity.Status",
+        "description": "Result wrapper returned by every action, carrying Success (whether the action was carried out, not whether it found anything) and Reason (empty on ordinary success; otherwise a prefix plus text - noop/clamped/partial/defaulted when Success is true, rejected/invalid/unsupported/unavailable when it is false)"
+      },
+      "result": {
+        "type": "Tizen.Entity.BrowserMedia",
+        "description": "A media element on the current page: Title, Duration, Position, and Playing"
+      }
+    }
+  },
+  "details": {
+    "appid": "org.tizen.next-browser"
+  }
+}

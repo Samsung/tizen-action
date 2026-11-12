@@ -1,0 +1,33 @@
+{
+  "typeName": "Tizen.Entity.HealthPreference",
+  "description": "One activity the user has a preference on: ActivityId and ActivityTitle name it, IntensityLevel and ActivityValue carry the preference, ImageUrl points at its artwork",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "ActivityId",
+      "ActivityTitle"
+    ],
+    "properties": {
+      "ActivityId": {
+        "type": "integer",
+        "description": "Numeric code of the activity in the health app's activity table, such as 5 for Cardio/HIIT"
+      },
+      "ActivityTitle": {
+        "type": "string",
+        "description": "Display name of the activity as the health app lists it, such as Cardio/HIIT or Yoga"
+      },
+      "IntensityLevel": {
+        "type": "integer",
+        "description": "Preferred intensity of the activity as an integer level; range defined by the app"
+      },
+      "ActivityValue": {
+        "type": "boolean",
+        "description": "True when the user picked this activity as a preference; providers may list only picked activities"
+      },
+      "ImageUrl": {
+        "type": "string",
+        "description": "URL of the activity's artwork image, used only for display"
+      }
+    }
+  }
+}

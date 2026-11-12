@@ -1,0 +1,21 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Browser_Exit",
+  "type": "tidl",
+  "category": "Tizen.Action.Browser",
+  "description": "Close the browser application",
+  "allowedBackground": "false",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "properties": {}
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": "org.tizen.next-browser"
+  }
+}

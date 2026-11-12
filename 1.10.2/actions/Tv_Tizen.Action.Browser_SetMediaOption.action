@@ -1,0 +1,24 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Browser_SetMediaOption",
+  "type": "tidl",
+  "category": "Tizen.Action.Browser",
+  "description": "Set a media playback option: subtitle, shuffle, repeat, playback speed, video quality",
+  "allowedBackground": "false",
+  "requiresRunning": true,
+  "autoDispose": "false",
+  "requiredPrivileges": [
+    "http://tizen.org/privilege/mediacontroller.client"
+  ],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.BrowserMediaOption"
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": "org.tizen.next-browser"
+  }
+}

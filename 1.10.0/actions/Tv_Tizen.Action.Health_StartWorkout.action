@@ -1,0 +1,20 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Health_StartWorkout",
+  "type": "tidl",
+  "category": "Tizen.Action.Health",
+  "description": "Start a guided workout",
+  "allowedBackground": "false",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.Workout"
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": "com.samsung.tv.samsung-health"
+  }
+}

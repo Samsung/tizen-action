@@ -1,0 +1,44 @@
+{
+  "typeName": "Tizen.Entity.CastSource",
+  "description": "The sender connected to the TV: Protocol (airplay/googlecast/miracast/dex/remote_pc), Mode (mirroring/media_cast, absent before the sender commits to one), SenderName, and SupportedOperations, the operations accepted right now",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Protocol",
+      "SupportedOperations"
+    ],
+    "properties": {
+      "Protocol": {
+        "type": "string",
+        "description": "Casting protocol of the sender: airplay, googlecast, miracast, dex or remote_pc",
+        "enum": [
+          "airplay",
+          "googlecast",
+          "miracast",
+          "dex",
+          "remote_pc"
+        ]
+      },
+      "Mode": {
+        "type": "string",
+        "description": "mirroring for screen mirroring, media_cast for casting a media item; absent until the sender commits to one",
+        "enum": [
+          "mirroring",
+          "media_cast"
+        ]
+      },
+      "SenderName": {
+        "type": "string",
+        "description": "Name of the sending device as it announced itself"
+      },
+      "SupportedOperations": {
+        "type": "array",
+        "description": "PlaybackCommand Operation values the session accepts right now; empty while mirroring or before Mode is set",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

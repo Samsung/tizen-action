@@ -1,0 +1,37 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Music_SearchAlbum",
+  "type": "tidl",
+  "category": "Tizen.Action.Music",
+  "description": "Searches for albums with MusicQuery and returns Album items. Hand a result to Tv_Tizen.Action.Music_Play; use Tv_Tizen.Action.Music_SearchTrack for individual songs",
+  "allowedBackground": "true",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.MusicQuery"
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "return",
+      "result"
+    ],
+    "properties": {
+      "return": {
+        "type": "Tizen.Entity.Status",
+        "description": "Result wrapper returned by every action, carrying Success (whether the action was carried out, not whether it found anything) and Reason (empty on ordinary success; otherwise a prefix plus text - noop/clamped/partial/defaulted when Success is true, rejected/invalid/unsupported/unavailable when it is false)"
+      },
+      "result": {
+        "type": "array",
+        "description": "A music album with Title (from Playable), Artist, ReleaseDate, TrackCount, and CoverUrl. Pass one to Tv_Tizen.Action.Music_Play; find one with Tv_Tizen.Action.Music_SearchAlbum",
+        "items": {
+          "type": "Tizen.Entity.Album"
+        }
+      }
+    }
+  },
+  "details": {
+    "appid": ""
+  }
+}

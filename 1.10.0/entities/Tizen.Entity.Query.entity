@@ -1,0 +1,23 @@
+{
+  "typeName": "Tizen.Entity.Query",
+  "description": "Generic search criteria for every domain search action: Keyword (free text), Category (app or domain filter, not content genre), Limit (max results), and inherited Id to fetch one item by id",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "Keyword": {
+        "type": "string",
+        "description": "Free-text search term matched against item names or titles; leave empty to skip"
+      },
+      "Category": {
+        "type": "string",
+        "description": "App or domain filter narrowing the search, such as a page list name; not a content genre"
+      },
+      "Limit": {
+        "type": "integer",
+        "description": "Maximum number of results to return; the provider may clamp it and say so in Status.Reason"
+      }
+    }
+  }
+}

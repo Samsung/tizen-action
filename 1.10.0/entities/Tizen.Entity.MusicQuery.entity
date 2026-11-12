@@ -1,0 +1,56 @@
+{
+  "typeName": "Tizen.Entity.MusicQuery",
+  "description": "Music search filters. Theme=mood/activity/subject/occasion. InLibrary true=library-only; StorageType(internal/usb/network) narrows local-file search. Set Format only if user named audio/video",
+  "base": "Tizen.Entity.Query",
+  "dataSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "Title": {
+        "type": "string",
+        "description": "Title or part of a title of the track, album or playlist to match"
+      },
+      "Artist": {
+        "type": "string",
+        "description": "Name of the artist to match, as a plain string"
+      },
+      "Album": {
+        "type": "string",
+        "description": "Name of the album to match, as a plain string"
+      },
+      "Genre": {
+        "type": "string",
+        "description": "Musical genre to match, such as jazz or k-pop"
+      },
+      "Theme": {
+        "type": "string",
+        "description": "Mood, activity, subject or occasion as free text, such as workout or rainy day"
+      },
+      "Year": {
+        "type": "integer",
+        "description": "Release year to match, as a four-digit integer"
+      },
+      "InLibrary": {
+        "type": "boolean",
+        "description": "True searches only items saved in the user's library; false and empty mean no restriction"
+      },
+      "StorageType": {
+        "type": "string",
+        "description": "Where a local file lives: internal, usb or network; applies to local-file apps only",
+        "enum": [
+          "internal",
+          "usb",
+          "network"
+        ]
+      },
+      "Format": {
+        "type": "string",
+        "description": "audio or video, set only when the user named the form; otherwise leave empty for the provider to decide",
+        "enum": [
+          "audio",
+          "video"
+        ]
+      }
+    }
+  }
+}

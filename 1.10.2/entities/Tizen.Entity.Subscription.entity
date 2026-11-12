@@ -1,0 +1,68 @@
+{
+  "typeName": "Tizen.Entity.Subscription",
+  "description": "Subscription state and the subscriber's own terms, which may differ from or be missing in the SubscriptionPlan list; amount charged is Promotion.Price when present, else Price",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "State"
+    ],
+    "properties": {
+      "State": {
+        "type": "string",
+        "description": "active, trial, grace (lapsed but still serving), expired or none for no subscription",
+        "enum": [
+          "active",
+          "trial",
+          "grace",
+          "expired",
+          "none"
+        ]
+      },
+      "PlanId": {
+        "type": "string",
+        "description": "ID of the subscribed plan, the same value as SubscriptionPlan.Id"
+      },
+      "PlanName": {
+        "type": "string",
+        "description": "Name of the subscribed plan; for gaming services it starts with the service name"
+      },
+      "HasAds": {
+        "type": "boolean",
+        "description": "True when the plan is an ad-supported tier that shows advertisements"
+      },
+      "StartedOn": {
+        "type": "string",
+        "description": "Date the subscription started, as an ISO 8601 date such as 2026-03-01"
+      },
+      "ExpiresOn": {
+        "type": "string",
+        "description": "End of the current period as an ISO 8601 date; also the next billing date when AutoRenew is true"
+      },
+      "AutoRenew": {
+        "type": "boolean",
+        "description": "True when the subscription renews automatically at ExpiresOn"
+      },
+      "Price": {
+        "type": "number",
+        "description": "List price charged per BillingPeriod, before any Promotion; absent when the plan is free or unknown"
+      },
+      "Currency": {
+        "type": "string",
+        "description": "Currency of Price as an ISO 4217 code such as USD or KRW; absent when Price is absent"
+      },
+      "BillingPeriod": {
+        "type": "string",
+        "description": "How often Price is charged, monthly or yearly; read together with Price",
+        "enum": [
+          "monthly",
+          "yearly"
+        ]
+      },
+      "Promotion": {
+        "type": "Tizen.Entity.SubscriptionPromotion",
+        "description": "Discount on a list price, in the Currency and BillingPeriod of the Subscription or SubscriptionPlan carrying it; EndsOn applies on a Subscription, Duration on a SubscriptionPlan"
+      }
+    }
+  }
+}

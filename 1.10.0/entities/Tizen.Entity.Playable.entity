@@ -1,0 +1,29 @@
+{
+  "typeName": "Tizen.Entity.Playable",
+  "description": "Base of every playable item: Title, Formats (audio/video; empty=unknown, video implies audio). A base(Playable) slot may omit TypeName - treat as untyped. Never Station or Artist",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Title",
+      "Formats"
+    ],
+    "properties": {
+      "Title": {
+        "type": "string",
+        "description": "Display title of the playable item as the provider shows it"
+      },
+      "Formats": {
+        "type": "array",
+        "description": "Renditions available, audio and/or video; empty means unknown and video implies audio is also available",
+        "items": {
+          "type": "string",
+          "enum": [
+            "audio",
+            "video"
+          ]
+        }
+      }
+    }
+  }
+}

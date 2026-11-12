@@ -1,0 +1,31 @@
+{
+  "typeName": "Tizen.Entity.Offer",
+  "description": "Commercial terms for one item: PriceType (free/subscription/rent/buy), Price, Currency - both empty on free and subscription. Filter via ContentQuery.PriceType",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "PriceType"
+    ],
+    "properties": {
+      "PriceType": {
+        "type": "string",
+        "description": "Commercial terms of the item: free, subscription, rent or buy",
+        "enum": [
+          "free",
+          "subscription",
+          "rent",
+          "buy"
+        ]
+      },
+      "Price": {
+        "type": "number",
+        "description": "Amount to pay for rent or buy; empty on free and subscription catalogs"
+      },
+      "Currency": {
+        "type": "string",
+        "description": "Currency of Price as an ISO 4217 code such as USD; empty when Price is empty"
+      }
+    }
+  }
+}

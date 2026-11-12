@@ -1,0 +1,34 @@
+{
+  "typeName": "Tizen.Entity.MemoryFeed",
+  "description": "The feed Photo_GetMemories returns: Memories in the app's order, RecommendationIndex naming the one to feature (-1 when none), Locked when a content lock hides it, NextRefreshTime for the next set",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Memories",
+      "RecommendationIndex",
+      "Locked"
+    ],
+    "properties": {
+      "Memories": {
+        "type": "array",
+        "description": "One curated memory such as a trip highlight reel: Title, Subtitle, CoverPhoto, and a DeepLink URI opening it outside the action framework. Titles repeat, so Photo_PlayMemory takes the inherited Id",
+        "items": {
+          "type": "Tizen.Entity.Memory"
+        }
+      },
+      "RecommendationIndex": {
+        "type": "integer",
+        "description": "0-based index into Memories of the one to feature; -1 when none is recommended"
+      },
+      "Locked": {
+        "type": "boolean",
+        "description": "True when an in-app content lock hides the feed's content until unlocked"
+      },
+      "NextRefreshTime": {
+        "type": "string",
+        "description": "When the app will produce the next set of memories, as a datetime string"
+      }
+    }
+  }
+}

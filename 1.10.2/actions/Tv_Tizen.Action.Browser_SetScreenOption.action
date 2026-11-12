@@ -1,0 +1,22 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Browser_SetScreenOption",
+  "type": "tidl",
+  "category": "Tizen.Action.Browser",
+  "description": "Set a screen option: zoom, full screen, screen mode",
+  "allowedBackground": "false",
+  "requiresRunning": true,
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.BrowserScreenOption"
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": "org.tizen.next-browser"
+  }
+}

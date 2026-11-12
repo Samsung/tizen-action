@@ -1,0 +1,41 @@
+{
+  "typeName": "Tizen.Entity.CalendarRecurrence",
+  "description": "How a calendar event repeats: every Interval periods of Frequency, on ByDay weekdays, ending after Count or at Until; omit CalendarEvent.Recurrence for an event that happens once",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Frequency"
+    ],
+    "properties": {
+      "Frequency": {
+        "type": "string",
+        "description": "How often the event repeats: daily, weekly, monthly or yearly",
+        "enum": [
+          "daily",
+          "weekly",
+          "monthly",
+          "yearly"
+        ]
+      },
+      "Interval": {
+        "type": "integer",
+        "description": "Repeat every N periods of Frequency, such as 2 for every other week; 1 when omitted"
+      },
+      "ByDay": {
+        "type": "array",
+        "description": "Weekdays the event falls on, as MO, TU, WE, TH, FR, SA or SU; used with weekly Frequency",
+        "items": {
+          "type": "string"
+        }
+      },
+      "Count": {
+        "type": "integer",
+        "description": "Total number of occurrences before the series ends; set either Count or Until, not both"
+      },
+      "Until": {
+        "type": "string",
+        "description": "ISO 8601 datetime after which the series stops; set either Count or Until, not both"
+      }
+    }
+  }
+}

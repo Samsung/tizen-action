@@ -1,0 +1,33 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Browser_UpdatePageList",
+  "type": "tidl",
+  "category": "Tizen.Action.Browser",
+  "description": "Save the current page to, or remove an item from, a browser list (Bookmark, WatchLater); Save returns the created item with its Id; absent when Operation is remove",
+  "allowedBackground": "false",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.PageListCommand"
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "return"
+    ],
+    "properties": {
+      "return": {
+        "type": "Tizen.Entity.Status",
+        "description": "Result wrapper returned by every action, carrying Success (whether the action was carried out, not whether it found anything) and Reason (empty on ordinary success; otherwise a prefix plus text - noop/clamped/partial/defaulted when Success is true, rejected/invalid/unsupported/unavailable when it is false)"
+      },
+      "result": {
+        "type": "Tizen.Entity.PageListItem",
+        "description": "An entry of a browser page list: List (bookmark/watchlater/history/mostvisited/featured), the Page, Date (save or visit date depending on List), and VisitCount, populated only for history"
+      }
+    }
+  },
+  "details": {
+    "appid": "org.tizen.next-browser"
+  }
+}

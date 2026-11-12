@@ -1,0 +1,21 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Browser_GoToScreen",
+  "type": "tidl",
+  "category": "Tizen.Action.Browser",
+  "description": "Move to a built-in browser destination: home, bookmarks, featured, most visited, history, watch later, open tabs, settings, sign-in or the address bar",
+  "allowedBackground": "false",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.BrowserScreen"
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": "org.tizen.next-browser"
+  }
+}

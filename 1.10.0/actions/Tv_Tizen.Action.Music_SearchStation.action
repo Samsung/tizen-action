@@ -1,0 +1,37 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Music_SearchStation",
+  "type": "tidl",
+  "category": "Tizen.Action.Music",
+  "description": "Searches radio-style stations with MusicQuery and returns Station items. Play a result with Tv_Tizen.Action.Music_StartStation, not Tv_Tizen.Action.Music_Play - a station is generated, not played",
+  "allowedBackground": "true",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.MusicQuery"
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "return",
+      "result"
+    ],
+    "properties": {
+      "return": {
+        "type": "Tizen.Entity.Status",
+        "description": "Result wrapper returned by every action, carrying Success (whether the action was carried out, not whether it found anything) and Reason (empty on ordinary success; otherwise a prefix plus text - noop/clamped/partial/defaulted when Success is true, rejected/invalid/unsupported/unavailable when it is false)"
+      },
+      "result": {
+        "type": "array",
+        "description": "An endless stream from Seed (SeedType: artist/track/album/genre) and IsLive. Start via Tv_Tizen.Action.Music_StartStation, not Tv_Tizen.Action.Music_Play. Cannot be seeked. Has no Affinity",
+        "items": {
+          "type": "Tizen.Entity.Station"
+        }
+      }
+    }
+  },
+  "details": {
+    "appid": ""
+  }
+}

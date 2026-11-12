@@ -1,0 +1,31 @@
+{
+  "typeName": "Tizen.Entity.PodcastShow",
+  "description": "A podcast show. Episodes: Tv_Tizen.Action.Music_GetPodcastEpisodes. Play via Tv_Tizen.Action.Music_Play; follow via Tv_Tizen.Action.Music_AddToLibrary, read back with PodcastQuery.InLibrary",
+  "base": "Tizen.Entity.Playable",
+  "dataSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "Publisher": {
+        "type": "string",
+        "description": "Name of the publisher or network behind the show"
+      },
+      "Description": {
+        "type": "string",
+        "description": "The show's own blurb, distinct from an episode's Description"
+      },
+      "Genre": {
+        "type": "string",
+        "description": "Podcast genre of the show, such as news or comedy"
+      },
+      "CoverUrl": {
+        "type": "string",
+        "description": "URL of the show's cover image, used only for display"
+      },
+      "EpisodeCount": {
+        "type": "integer",
+        "description": "Total number of episodes the show has published"
+      }
+    }
+  }
+}

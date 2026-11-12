@@ -1,0 +1,133 @@
+# action.seq — canonical per-category action order for the TIDL toolchain.
+#
+# TIDL method ids are positional within a category interface. Both the
+# toolchain (actionc, at code generation) and the device runtime read this
+# file to agree on that order. Rules:
+#   * One [Category] section per TIDL category; one action name per line.
+#   * Order = method-id order (ids start at 2; 0/1 are __Result/__Callback).
+#   * Once the catalogue is frozen this file is APPEND-ONLY: add a new action
+#     at the END of its section and never reorder an existing line, because
+#     doing so shifts later ids and breaks already-generated stubs. A retired
+#     action cannot be parked as a reserved slot - actionc and action2tidl
+#     reject a listed name with no matching .action file - so its line goes
+#     and every id after it in that section shifts.
+#
+# Bootstrapped in alphabetical order from the tizen-action-catalog set
+# (2026-10-01); ids from earlier bootstraps are not preserved. Until the
+# catalogue is frozen the whole file is re-bootstrapped whenever the set
+# changes, so no id here is stable yet. The [Tizen.Action.View] section is
+# owned by the Common profile.
+
+[Tizen.Action.AppAccount]
+Tv_Tizen.Action.AppAccount_Get
+Tv_Tizen.Action.AppAccount_GetProfiles
+Tv_Tizen.Action.AppAccount_SwitchProfile
+Tv_Tizen.Action.AppAccount_GetSubscriptionPlans
+
+[Tizen.Action.Browser]
+Tv_Tizen.Action.Browser_ControlMedia
+Tv_Tizen.Action.Browser_ControlTab
+Tv_Tizen.Action.Browser_Engage
+Tv_Tizen.Action.Browser_Exit
+Tv_Tizen.Action.Browser_GetCurrentPage
+Tv_Tizen.Action.Browser_GetMedia
+Tv_Tizen.Action.Browser_GetTabs
+Tv_Tizen.Action.Browser_GoToScreen
+Tv_Tizen.Action.Browser_Navigate
+Tv_Tizen.Action.Browser_OpenPage
+Tv_Tizen.Action.Browser_Search
+Tv_Tizen.Action.Browser_SearchPageList
+Tv_Tizen.Action.Browser_SelectItem
+Tv_Tizen.Action.Browser_SetMediaOption
+Tv_Tizen.Action.Browser_SetScreenOption
+Tv_Tizen.Action.Browser_ToCalendar
+Tv_Tizen.Action.Browser_UpdatePageList
+
+[Tizen.Action.Health]
+Tv_Tizen.Action.Health_GetSummary
+Tv_Tizen.Action.Health_StartWorkout
+Tv_Tizen.Action.Health_StopWorkout
+
+[Tizen.Action.IoT]
+Tv_Tizen.Action.IoT_ControlDevice
+Tv_Tizen.Action.IoT_GetDeviceCapabilityStatuses
+Tv_Tizen.Action.IoT_GetDevices
+Tv_Tizen.Action.IoT_GetLocations
+Tv_Tizen.Action.IoT_GetRooms
+Tv_Tizen.Action.IoT_GetScenes
+Tv_Tizen.Action.IoT_GetSupportedCommands
+Tv_Tizen.Action.IoT_RunScene
+
+[Tizen.Action.Music]
+Tv_Tizen.Action.Music_AddToLibrary
+Tv_Tizen.Action.Music_AddToPlaylist
+Tv_Tizen.Action.Music_AddToQueue
+Tv_Tizen.Action.Music_Control
+Tv_Tizen.Action.Music_GetCurrent
+Tv_Tizen.Action.Music_GetPlaylistTracks
+Tv_Tizen.Action.Music_GetPodcastEpisodes
+Tv_Tizen.Action.Music_GetQueue
+Tv_Tizen.Action.Music_Play
+Tv_Tizen.Action.Music_PlayFile
+Tv_Tizen.Action.Music_RemoveFromLibrary
+Tv_Tizen.Action.Music_RemoveFromPlaylist
+Tv_Tizen.Action.Music_RemoveFromQueue
+Tv_Tizen.Action.Music_Search
+Tv_Tizen.Action.Music_SearchAlbum
+Tv_Tizen.Action.Music_SearchAndPlay
+Tv_Tizen.Action.Music_SearchArtist
+Tv_Tizen.Action.Music_SearchPlaylist
+Tv_Tizen.Action.Music_SearchPodcast
+Tv_Tizen.Action.Music_SearchPodcastEpisode
+Tv_Tizen.Action.Music_SearchStation
+Tv_Tizen.Action.Music_SearchTrack
+Tv_Tizen.Action.Music_SetAffinity
+Tv_Tizen.Action.Music_SetState
+Tv_Tizen.Action.Music_StartStation
+
+[Tizen.Action.Photo]
+Tv_Tizen.Action.Photo_AddPhoto
+Tv_Tizen.Action.Photo_DeletePhoto
+Tv_Tizen.Action.Photo_GetCurrent
+Tv_Tizen.Action.Photo_GetMemories
+Tv_Tizen.Action.Photo_PlayMemory
+Tv_Tizen.Action.Photo_Search
+Tv_Tizen.Action.Photo_Show
+Tv_Tizen.Action.Photo_StartSlideshow
+Tv_Tizen.Action.Photo_StopSlideshow
+Tv_Tizen.Action.Photo_ShowInArtMode
+Tv_Tizen.Action.Photo_Open
+Tv_Tizen.Action.Photo_OpenInGenerativePhoto
+
+[Tizen.Action.ScreenContext]
+Tv_Tizen.Action.ScreenContext_GetCurrent
+
+[Tizen.Action.ScreenShare]
+Tv_Tizen.Action.ScreenShare_Control
+Tv_Tizen.Action.ScreenShare_GetStatus
+Tv_Tizen.Action.ScreenShare_Stop
+
+[Tizen.Action.Video]
+Tv_Tizen.Action.Video_AddToWatchlist
+Tv_Tizen.Action.Video_Control
+Tv_Tizen.Action.Video_ControlPane
+Tv_Tizen.Action.Video_GetContentAngles
+Tv_Tizen.Action.Video_GetCurrent
+Tv_Tizen.Action.Video_GetDetails
+Tv_Tizen.Action.Video_GetSeriesEpisodes
+Tv_Tizen.Action.Video_GetWatchlist
+Tv_Tizen.Action.Video_Play
+Tv_Tizen.Action.Video_PlayFile
+Tv_Tizen.Action.Video_PlayMultiView
+Tv_Tizen.Action.Video_RemoveFromWatchlist
+Tv_Tizen.Action.Video_Search
+Tv_Tizen.Action.Video_SearchAndPlay
+Tv_Tizen.Action.Video_SearchContent
+Tv_Tizen.Action.Video_SearchSeries
+Tv_Tizen.Action.Video_SetState
+Tv_Tizen.Action.Video_SetSubtitle
+
+[Tizen.Action.View]
+Common_Tizen.Action.View_FindById
+Common_Tizen.Action.View_GetAnnotatedViews
+Common_Tizen.Action.View_GetFocusedView

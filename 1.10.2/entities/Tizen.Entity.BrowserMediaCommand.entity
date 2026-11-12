@@ -1,0 +1,40 @@
+{
+  "typeName": "Tizen.Entity.BrowserMediaCommand",
+  "description": "Media transport request: Operation (play/pause/restart/seek/skipforward/skipbackward/previoustrack/nexttrack/skipad); seek uses Position, skips use Offset, track moves take an Ordinal",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Operation"
+    ],
+    "properties": {
+      "Operation": {
+        "type": "string",
+        "description": "Transport move to apply: play, pause, restart, seek, skipforward, skipbackward, previoustrack, nexttrack or skipad",
+        "enum": [
+          "play",
+          "pause",
+          "restart",
+          "seek",
+          "skipforward",
+          "skipbackward",
+          "previoustrack",
+          "nexttrack",
+          "skipad"
+        ]
+      },
+      "Position": {
+        "type": "integer",
+        "description": "Absolute position in seconds to jump to; read only when Operation is seek"
+      },
+      "Offset": {
+        "type": "integer",
+        "description": "Number of seconds to skip; read only when Operation is skipforward or skipbackward"
+      },
+      "Ordinal": {
+        "type": "integer",
+        "description": "Which track to move to by position in the list; read only for previoustrack and nexttrack"
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Video_GetWatchlist",
+  "type": "tidl",
+  "category": "Tizen.Action.Video",
+  "description": "Returns every Content and Series saved to the watchlist as one Playable list, each with TypeName. Takes no input; to narrow by title, genre or cast, search with ContentQuery InWatchlist true",
+  "allowedBackground": "true",
+  "allowedFanout": true,
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "properties": {}
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "return",
+      "result"
+    ],
+    "properties": {
+      "return": {
+        "type": "Tizen.Entity.Status",
+        "description": "Result wrapper returned by every action, carrying Success (whether the action was carried out, not whether it found anything) and Reason (empty on ordinary success; otherwise a prefix plus text - noop/clamped/partial/defaulted when Success is true, rejected/invalid/unsupported/unavailable when it is false)"
+      },
+      "result": {
+        "type": "array",
+        "description": "Base of every playable item: Title, Formats (audio/video; empty=unknown, video implies audio). A base(Playable) slot may omit TypeName - treat as untyped. Never Station or Artist",
+        "items": {
+          "base": "Tizen.Entity.Playable",
+          "description": "Base of every playable item: Title, Formats (audio/video; empty=unknown, video implies audio). A base(Playable) slot may omit TypeName - treat as untyped. Never Station or Artist"
+        }
+      }
+    }
+  },
+  "details": {
+    "appid": ""
+  }
+}

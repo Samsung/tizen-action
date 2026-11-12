@@ -1,0 +1,29 @@
+{
+  "typeName": "Tizen.Entity.SleepData",
+  "description": "Last night's sleep bounded by StartTime and EndTime, with DurationMinutes and Score when the app has them",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "StartTime",
+      "EndTime"
+    ],
+    "properties": {
+      "StartTime": {
+        "type": "string",
+        "description": "When the user fell asleep, as a datetime string"
+      },
+      "EndTime": {
+        "type": "string",
+        "description": "When the user woke up and the sleep ended, as a datetime string"
+      },
+      "DurationMinutes": {
+        "type": "integer",
+        "description": "Minutes slept between StartTime and EndTime, computed by the app from the pair; absent when not computed"
+      },
+      "Score": {
+        "type": "integer",
+        "description": "Sleep quality score as an integer; absent when the app has no score, which the current app never provides"
+      }
+    }
+  }
+}

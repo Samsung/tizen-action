@@ -1,0 +1,22 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Music_StartStation",
+  "type": "tidl",
+  "category": "Tizen.Action.Music",
+  "description": "Starts an endless stream from a Station seed. Distinct from Tv_Tizen.Action.Music_Play because a station is newly generated from its seed rather than played from an existing list",
+  "allowedBackground": "false",
+  "autoDispose": "false",
+  "requiredPrivileges": [
+    "http://tizen.org/privilege/mediacontroller.client"
+  ],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.Station"
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": ""
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Music_SearchAndPlay",
+  "type": "tidl",
+  "category": "Tizen.Action.Music",
+  "description": "Plays what the user's sentence asks for in one call when they asked to play and need no pick; applies the optional PlaybackSetting first. Returns what plays. Known item: Tv_Tizen.Action.Music_Play",
+  "allowedBackground": "false",
+  "autoDispose": "false",
+  "requiredPrivileges": [
+    "http://tizen.org/privilege/mediacontroller.client"
+  ],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "required": [
+      "query"
+    ],
+    "properties": {
+      "query": {
+        "type": "Tizen.Entity.UtteranceQuery",
+        "description": "Pass the user's whole sentence as-is - the app parses it. Limit caps results. Set Format only if the user named audio/video. Origin agent when the sentence was rewritten, not spoken"
+      },
+      "setting": {
+        "type": "Tizen.Entity.PlaybackSetting",
+        "description": "Playback modes to change: Shuffle (on/off), Repeat (off/one/all), Speed (0.25/0.5/0.75/1.0/1.25/1.5/1.75/2.0). Omit a field to leave it unchanged; the playhead moves through PlaybackCommand's seek"
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "return"
+    ],
+    "properties": {
+      "return": {
+        "type": "Tizen.Entity.Status",
+        "description": "Result wrapper returned by every action, carrying Success (whether the action was carried out, not whether it found anything) and Reason (empty on ordinary success; otherwise a prefix plus text - noop/clamped/partial/defaulted when Success is true, rejected/invalid/unsupported/unavailable when it is false)"
+      },
+      "item": {
+        "base": "Tizen.Entity.Playable",
+        "description": "Base of every playable item: Title, Formats (audio/video; empty=unknown, video implies audio). A base(Playable) slot may omit TypeName - treat as untyped. Never Station or Artist"
+      }
+    }
+  },
+  "details": {
+    "appid": ""
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "typeName": "Tizen.Entity.HeartRateStats",
+  "description": "Heart rate in bpm for one Day: Current (the reading taken at MeasuredTime) alongside that day's Min and Max",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Day",
+      "Current",
+      "Min",
+      "Max",
+      "MeasuredTime"
+    ],
+    "properties": {
+      "Day": {
+        "type": "string",
+        "description": "Day the heart rate readings cover, as a date string"
+      },
+      "Current": {
+        "type": "integer",
+        "description": "Latest heart rate reading in bpm, taken at MeasuredTime"
+      },
+      "Min": {
+        "type": "integer",
+        "description": "Lowest heart rate reading recorded that day, in bpm"
+      },
+      "Max": {
+        "type": "integer",
+        "description": "Highest heart rate reading recorded that day, in bpm"
+      },
+      "MeasuredTime": {
+        "type": "string",
+        "description": "When the Current reading was taken, as a datetime string"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "typeName": "Tizen.Entity.CalendarEventAlarm",
+  "description": "An alarm fired MinutesBefore a calendar event starts, delivered by Method",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "MinutesBefore"
+    ],
+    "properties": {
+      "MinutesBefore": {
+        "type": "integer",
+        "description": "Minutes before StartDate the alarm fires, or before midnight of the day when IsAllDay; 1440 is one day ahead"
+      },
+      "Method": {
+        "type": "string",
+        "description": "How the alarm is delivered: alarm, notification or email; notification when omitted",
+        "enum": [
+          "alarm",
+          "notification",
+          "email"
+        ]
+      }
+    }
+  }
+}

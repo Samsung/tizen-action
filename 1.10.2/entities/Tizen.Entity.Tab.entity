@@ -1,0 +1,27 @@
+{
+  "typeName": "Tizen.Entity.Tab",
+  "description": "An open browser tab: the Page it shows, its Ordinal in the tab strip, Focused for the tab in front, and Secret. Url and Title are read from the composed WebPageInfo",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "Page": {
+        "type": "Tizen.Entity.WebPageInfo",
+        "description": "A web page; Url and Title are the required identifying fields, Details is a human-readable summary of the page"
+      },
+      "Ordinal": {
+        "type": "integer",
+        "description": "1-based position of the tab in the tab strip; an alternative handle to Id"
+      },
+      "Focused": {
+        "type": "boolean",
+        "description": "True for the tab currently shown in front of the others"
+      },
+      "Secret": {
+        "type": "boolean",
+        "description": "True for a secret tab that keeps no browsing history"
+      }
+    }
+  }
+}

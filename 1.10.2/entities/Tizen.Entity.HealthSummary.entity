@@ -1,0 +1,56 @@
+{
+  "typeName": "Tizen.Entity.HealthSummary",
+  "description": "A daily health summary: Date, Steps, ActiveCalories, ActiveMinutes, ExerciseStreakDays, StrengthTrainingCount, HeartRate, Sleep, Stress, and Preferences; only Date is present when nothing is recorded",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Date"
+    ],
+    "properties": {
+      "Date": {
+        "type": "string",
+        "description": "Day the summary covers as yyyy-MM-dd, such as 2026-09-30"
+      },
+      "Steps": {
+        "type": "integer",
+        "description": "Steps walked that day; absent when the app has no record"
+      },
+      "ActiveCalories": {
+        "type": "integer",
+        "description": "Calories burned through activity that day, in kcal; absent when unrecorded"
+      },
+      "ActiveMinutes": {
+        "type": "integer",
+        "description": "Minutes of active movement that day; absent when unrecorded"
+      },
+      "ExerciseStreakDays": {
+        "type": "integer",
+        "description": "Consecutive days with exercise up to today, the app's dashboard streak count; absent when unrecorded"
+      },
+      "StrengthTrainingCount": {
+        "type": "integer",
+        "description": "Strength training sessions counted by the app, summed across its exercise categories; absent when unrecorded"
+      },
+      "HeartRate": {
+        "type": "Tizen.Entity.HeartRateStats",
+        "description": "Heart rate in bpm for one Day: Current (the reading taken at MeasuredTime) alongside that day's Min and Max"
+      },
+      "Sleep": {
+        "type": "Tizen.Entity.SleepData",
+        "description": "Last night's sleep bounded by StartTime and EndTime, with DurationMinutes and Score when the app has them"
+      },
+      "Stress": {
+        "type": "Tizen.Entity.StressData",
+        "description": "Stress for one Day: the numeric Score; Level is absent from the provider and the agent derives it from Score"
+      },
+      "Preferences": {
+        "type": "array",
+        "description": "One activity the user has a preference on: ActivityId and ActivityTitle name it, IntensityLevel and ActivityValue carry the preference, ImageUrl points at its artwork",
+        "items": {
+          "type": "Tizen.Entity.HealthPreference"
+        }
+      }
+    }
+  }
+}

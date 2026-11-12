@@ -1,0 +1,25 @@
+{
+  "typeName": "Tizen.Entity.AppAccount",
+  "description": "App's own sign-in state, subscription, and active viewing profile",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "SignedIn"
+    ],
+    "properties": {
+      "SignedIn": {
+        "type": "boolean",
+        "description": "True when a user is signed in to this app; Subscription and CurrentProfile are absent when false"
+      },
+      "Subscription": {
+        "type": "Tizen.Entity.Subscription",
+        "description": "Subscription state and the subscriber's own terms, which may differ from or be missing in the SubscriptionPlan list; amount charged is Promotion.Price when present, else Price"
+      },
+      "CurrentProfile": {
+        "type": "Tizen.Entity.AppProfile",
+        "description": "In-app viewing profile with content rating kind"
+      }
+    }
+  }
+}

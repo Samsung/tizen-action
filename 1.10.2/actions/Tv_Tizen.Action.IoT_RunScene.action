@@ -1,0 +1,21 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.IoT_RunScene",
+  "type": "tidl",
+  "category": "Tizen.Action.IoT",
+  "description": "Runs an IoTScene, applying every device command it holds",
+  "allowedBackground": "true",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "requiresConfirmation": true,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.IoTScene"
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": "com.samsung.tizen.smartthings-client"
+  }
+}

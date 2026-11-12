@@ -1,0 +1,34 @@
+{
+  "typeName": "Tizen.Entity.AppProfile",
+  "description": "In-app viewing profile; RatingSystem and MaxRating are its content rating limit, which only the app compares",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Name",
+      "IsCurrent"
+    ],
+    "properties": {
+      "Name": {
+        "type": "string",
+        "description": "Display name of the in-app viewing profile; also its identifier when Id is empty"
+      },
+      "ImageUrl": {
+        "type": "string",
+        "description": "URL of the profile's avatar image, used only for display"
+      },
+      "RatingSystem": {
+        "type": "string",
+        "description": "Rating system MaxRating belongs to, as a lowercase id such as us_tv; absent with MaxRating"
+      },
+      "MaxRating": {
+        "type": "string",
+        "description": "Highest rating label the profile may play, such as TV-PG, in RatingSystem; absent when unlimited"
+      },
+      "IsCurrent": {
+        "type": "boolean",
+        "description": "True when this is the in-app profile currently in use"
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "typeName": "Tizen.Entity.Profile",
+  "description": "A TV user profile, carrying Name (nickname), ImageUrl (profile image), and IsCurrent (whether the TV is using this profile right now)",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Name",
+      "IsCurrent"
+    ],
+    "properties": {
+      "Name": {
+        "type": "string",
+        "description": "Nickname of the TV user profile as shown in the profile list; may be sent alone when the Id is unknown"
+      },
+      "ImageUrl": {
+        "type": "string",
+        "description": "URL of the profile's avatar image, used only for display"
+      },
+      "IsCurrent": {
+        "type": "boolean",
+        "description": "True when the TV is using this profile right now"
+      }
+    }
+  }
+}

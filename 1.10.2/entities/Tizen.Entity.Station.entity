@@ -1,0 +1,38 @@
+{
+  "typeName": "Tizen.Entity.Station",
+  "description": "An endless stream from Seed (SeedType: artist/track/album/genre) and IsLive. Start via Tv_Tizen.Action.Music_StartStation, not Tv_Tizen.Action.Music_Play. Cannot be seeked. Has no Affinity",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Name",
+      "Seed",
+      "SeedType",
+      "IsLive"
+    ],
+    "properties": {
+      "Name": {
+        "type": "string",
+        "description": "Display name of the station as the provider shows it"
+      },
+      "Seed": {
+        "type": "string",
+        "description": "Name of the artist, track, album or genre the stream is generated from"
+      },
+      "SeedType": {
+        "type": "string",
+        "description": "What Seed names: artist, track, album or genre",
+        "enum": [
+          "artist",
+          "track",
+          "album",
+          "genre"
+        ]
+      },
+      "IsLive": {
+        "type": "boolean",
+        "description": "True for a live radio stream, false for a generated on-demand stream"
+      }
+    }
+  }
+}

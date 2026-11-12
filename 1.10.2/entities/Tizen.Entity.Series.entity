@@ -1,0 +1,72 @@
+{
+  "typeName": "Tizen.Entity.Series",
+  "description": "A whole show; counts only - episodes via Tv_Tizen.Action.Video_GetSeriesEpisodes. Director is the show's lead director, not an Episode's own Content.Director. Play via Tv_Tizen.Action.Video_Play",
+  "base": "Tizen.Entity.Playable",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Cast",
+      "Director",
+      "Writer"
+    ],
+    "properties": {
+      "Cast": {
+        "type": "array",
+        "description": "A person credited on a content item, carrying Name only. The pointing field fixes the credit - Content and Series Cast, Director and Writer; ContentQuery matches them by plain Name string",
+        "items": {
+          "type": "Tizen.Entity.ContentPerson"
+        }
+      },
+      "Director": {
+        "type": "array",
+        "description": "A person credited on a content item, carrying Name only. The pointing field fixes the credit - Content and Series Cast, Director and Writer; ContentQuery matches them by plain Name string",
+        "items": {
+          "type": "Tizen.Entity.ContentPerson"
+        }
+      },
+      "Writer": {
+        "type": "array",
+        "description": "A person credited on a content item, carrying Name only. The pointing field fixes the credit - Content and Series Cast, Director and Writer; ContentQuery matches them by plain Name string",
+        "items": {
+          "type": "Tizen.Entity.ContentPerson"
+        }
+      },
+      "Genre": {
+        "type": "string",
+        "description": "Primary genre of the show, such as drama, comedy or documentary"
+      },
+      "AgeRating": {
+        "type": "string",
+        "description": "Age or content rating label of the show, such as 15 or TV-MA"
+      },
+      "ReleaseDate": {
+        "type": "string",
+        "description": "Date the show first aired or premiered, as a date string"
+      },
+      "Score": {
+        "type": "number",
+        "description": "Rating from 0.0 to 5.0, normalized across provider apps; absent when unrated"
+      },
+      "Description": {
+        "type": "string",
+        "description": "Synopsis of the show as a whole, as the provider shows it"
+      },
+      "PosterUrl": {
+        "type": "string",
+        "description": "URL of the show's poster or key art image, used only for display"
+      },
+      "Offer": {
+        "type": "Tizen.Entity.Offer",
+        "description": "Commercial terms for one item: PriceType (free/subscription/rent/buy), Price, Currency - both empty on free and subscription. Filter via ContentQuery.PriceType"
+      },
+      "SeasonCount": {
+        "type": "integer",
+        "description": "Number of seasons; the episodes come from Tv_Tizen.Action.Video_GetSeriesEpisodes"
+      },
+      "EpisodeCount": {
+        "type": "integer",
+        "description": "Total number of episodes across all seasons, a count only"
+      }
+    }
+  }
+}

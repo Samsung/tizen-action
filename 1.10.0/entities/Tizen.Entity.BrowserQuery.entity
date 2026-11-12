@@ -1,0 +1,26 @@
+{
+  "typeName": "Tizen.Entity.BrowserQuery",
+  "description": "Browser search request: Target picks web (just run the search, Status only) or place/product/person/answer, which look that type up from Page (the current page when omitted) into BrowserSearchResult",
+  "base": "Tizen.Entity.Query",
+  "dataSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "Target": {
+        "type": "string",
+        "description": "web runs a plain search and returns Status only; place, product, person or answer reads that fact from the page",
+        "enum": [
+          "web",
+          "place",
+          "product",
+          "person",
+          "answer"
+        ]
+      },
+      "Page": {
+        "type": "Tizen.Entity.WebPageInfo",
+        "description": "A web page; Url and Title are the required identifying fields, Details is a human-readable summary of the page"
+      }
+    }
+  }
+}

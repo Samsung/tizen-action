@@ -1,0 +1,29 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Music_SetAffinity",
+  "type": "tidl",
+  "category": "Tizen.Action.Music",
+  "description": "Sets the like state - liked, disliked, or unset - on one Track, Album, Playlist or ArtistVideo. Rejects PodcastShow, PodcastEpisode and Station; it neither saves to the library nor starts playback",
+  "allowedBackground": "true",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "required": [
+      "item"
+    ],
+    "properties": {
+      "item": {
+        "base": "Tizen.Entity.Playable",
+        "description": "Base of every playable item: Title, Formats (audio/video; empty=unknown, video implies audio). A base(Playable) slot may omit TypeName - treat as untyped. Never Station or Artist"
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": ""
+  }
+}

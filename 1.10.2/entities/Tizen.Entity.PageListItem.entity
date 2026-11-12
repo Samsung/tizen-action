@@ -1,0 +1,34 @@
+{
+  "typeName": "Tizen.Entity.PageListItem",
+  "description": "An entry of a browser page list: List (bookmark/watchlater/history/mostvisited/featured), the Page, Date (save or visit date depending on List), and VisitCount, populated only for history",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "List": {
+        "type": "string",
+        "description": "Which page list the entry is in: bookmark, watchlater, history, mostvisited or featured",
+        "enum": [
+          "bookmark",
+          "watchlater",
+          "history",
+          "mostvisited",
+          "featured"
+        ]
+      },
+      "Page": {
+        "type": "Tizen.Entity.WebPageInfo",
+        "description": "A web page; Url and Title are the required identifying fields, Details is a human-readable summary of the page"
+      },
+      "Date": {
+        "type": "string",
+        "description": "When the entry was saved, or last visited for history, as a datetime string"
+      },
+      "VisitCount": {
+        "type": "integer",
+        "description": "Number of visits to the page; filled only for the history list"
+      }
+    }
+  }
+}

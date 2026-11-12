@@ -1,0 +1,37 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.IoT_GetRooms",
+  "type": "tidl",
+  "category": "Tizen.Action.IoT",
+  "description": "Lists rooms in an IoTLocation; leave IoTLocation's Id empty to list rooms across every location. Feed an IoTRoom to Tv_Tizen.Action.IoT_GetDevices",
+  "allowedBackground": "true",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.IoTLocation"
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "return",
+      "result"
+    ],
+    "properties": {
+      "return": {
+        "type": "Tizen.Entity.Status",
+        "description": "Result wrapper returned by every action, carrying Success (whether the action was carried out, not whether it found anything) and Reason (empty on ordinary success; otherwise a prefix plus text - noop/clamped/partial/defaulted when Success is true, rejected/invalid/unsupported/unavailable when it is false)"
+      },
+      "result": {
+        "type": "array",
+        "description": "A room with Name within an IoTLocation. Identity is tracked via inherited Id",
+        "items": {
+          "type": "Tizen.Entity.IoTRoom"
+        }
+      }
+    }
+  },
+  "details": {
+    "appid": "com.samsung.tizen.smartthings-client"
+  }
+}

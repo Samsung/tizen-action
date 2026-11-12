@@ -1,0 +1,21 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.AppAccount_SwitchProfile",
+  "type": "tidl",
+  "category": "Tizen.Action.AppAccount",
+  "description": "Switch the app's own viewing AppProfile; leave Id empty to match by Name. Switch the TV's user: Tv_Tizen.Action.Profile_SwitchProfile",
+  "allowedBackground": "false",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.AppProfile"
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": ""
+  }
+}

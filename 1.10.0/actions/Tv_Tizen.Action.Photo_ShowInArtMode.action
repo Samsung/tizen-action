@@ -1,0 +1,27 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Photo_ShowInArtMode",
+  "type": "tidl",
+  "category": "Tizen.Action.Photo",
+  "description": "Hang a Photo, local or cloud, in Art Mode as framed art; omit it for the photo shown or focused now, failing when there is none. A plain image file outside a photo app: Tv_Tizen.Action.Art_ShowCustom",
+  "allowedBackground": "false",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "photo": {
+        "type": "Tizen.Entity.Photo",
+        "description": "A photo or video item from a photo app or the TV camera: Location, Date, File, Note, ThumbnailUrl, MediaType (photo or video), the People, Activities and Objects found in it, and the Source it came from"
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": "com.samsung.tv.photo-player-type-a"
+  }
+}

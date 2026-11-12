@@ -1,0 +1,29 @@
+{
+  "typeName": "Tizen.Entity.ContentPaneLayout",
+  "description": "How one video app splits its own screen - distinct from the device-level MultiView category. One Pane=full-screen. Same Content on every pane=multi-angle; different Contents=multi-stream",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Arrangement",
+      "Panes"
+    ],
+    "properties": {
+      "Arrangement": {
+        "type": "string",
+        "description": "tiled places panes side by side, overlay draws them over one another; empty lets the app choose",
+        "enum": [
+          "tiled",
+          "overlay"
+        ]
+      },
+      "Panes": {
+        "type": "array",
+        "description": "One pane of multiview. Primary(size), Focused(command target), SoundFocus(audio) are independent flags; exactly one Focused, one SoundFocus. Set focus via Tv_Tizen.Action.Video_ControlPane",
+        "items": {
+          "type": "Tizen.Entity.ContentPane"
+        }
+      }
+    }
+  }
+}

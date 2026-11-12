@@ -1,0 +1,34 @@
+{
+  "typeName": "Tizen.Entity.ContentAngle",
+  "description": "An alternative camera angle. The list never includes the default feed. person_cam requires Subject. Match a request by Subject.Name, then Label, then AngleType; ask the user if still tied",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "AngleType",
+      "Label"
+    ],
+    "properties": {
+      "AngleType": {
+        "type": "string",
+        "description": "Camera angle kind: wide, close_up, person_cam, side, overhead or other",
+        "enum": [
+          "wide",
+          "close_up",
+          "person_cam",
+          "side",
+          "overhead",
+          "other"
+        ]
+      },
+      "Label": {
+        "type": "string",
+        "description": "The app's own viewer-facing name of the angle, such as Goal cam; match requests against it after Subject"
+      },
+      "Subject": {
+        "type": "Tizen.Entity.ContentPerson",
+        "description": "A person credited on a content item, carrying Name only. The pointing field fixes the credit - Content and Series Cast, Director and Writer; ContentQuery matches them by plain Name string"
+      }
+    }
+  }
+}

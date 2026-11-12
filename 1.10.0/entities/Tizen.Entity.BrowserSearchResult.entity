@@ -1,0 +1,27 @@
+{
+  "typeName": "Tizen.Entity.BrowserSearchResult",
+  "description": "The result of a Browser_Search call: Answer, Place, Product, or Person; exactly one is populated matching BrowserQuery.Target",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "Answer": {
+        "type": "Tizen.Entity.BrowserAnswer",
+        "description": "A free-form answer from the current page: Text and SourceUrl"
+      },
+      "Place": {
+        "type": "Tizen.Entity.BrowserPlace",
+        "description": "A place the page is about: Name, Address, Latitude, and Longitude"
+      },
+      "Product": {
+        "type": "Tizen.Entity.BrowserProduct",
+        "description": "A product the page is about: Name, Price, Currency, and Seller"
+      },
+      "Person": {
+        "type": "Tizen.Entity.BrowserPerson",
+        "description": "A person the page is about: Name, Role, and Description"
+      }
+    }
+  }
+}

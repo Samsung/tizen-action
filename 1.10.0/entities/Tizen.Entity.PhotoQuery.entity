@@ -1,0 +1,47 @@
+{
+  "typeName": "Tizen.Entity.PhotoQuery",
+  "description": "Photo search filters extending Query, all combinable: DateFrom/DateTo (when taken), Location (place name), Person (who appears), Activity (free text, e.g. hiking), Object (detected tag, e.g. dog), Source (which photo source to search)",
+  "base": "Tizen.Entity.Query",
+  "dataSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "DateFrom": {
+        "type": "string",
+        "description": "Earliest date a photo may have been taken, inclusive, as an ISO 8601 date such as 2025-06-01"
+      },
+      "DateTo": {
+        "type": "string",
+        "description": "Latest date a photo may have been taken, inclusive, as an ISO 8601 date such as 2025-08-31"
+      },
+      "Location": {
+        "type": "string",
+        "description": "Place name the photo was taken at, such as Jeju or Paris"
+      },
+      "Person": {
+        "type": "string",
+        "description": "Name of a person who appears in the photo, as the app knows them"
+      },
+      "Activity": {
+        "type": "string",
+        "description": "Activity shown in the photo as free text, such as hiking or birthday"
+      },
+      "Object": {
+        "type": "string",
+        "description": "Detected object tag the photo must contain, such as dog or food"
+      },
+      "Source": {
+        "type": "string",
+        "description": "Source to search: gallery, google_photos, quick_share, art_mode, generative_photo or usb; absent for all",
+        "enum": [
+          "gallery",
+          "google_photos",
+          "quick_share",
+          "art_mode",
+          "generative_photo",
+          "usb"
+        ]
+      }
+    }
+  }
+}

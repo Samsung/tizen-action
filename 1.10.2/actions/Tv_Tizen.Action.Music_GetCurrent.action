@@ -1,0 +1,46 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Music_GetCurrent",
+  "type": "tidl",
+  "category": "Tizen.Action.Music",
+  "description": "Returns the Playable item sounding now - Track, PodcastEpisode or ArtistVideo - its PlaybackState, and the Station if any; absent when nothing plays. Video: Tv_Tizen.Action.Video_GetCurrent",
+  "allowedBackground": "true",
+  "requiresRunning": true,
+  "autoDispose": "false",
+  "requiredPrivileges": [
+    "http://tizen.org/privilege/mediacontroller.client"
+  ],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "properties": {}
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "return"
+    ],
+    "properties": {
+      "return": {
+        "type": "Tizen.Entity.Status",
+        "description": "Result wrapper returned by every action, carrying Success (whether the action was carried out, not whether it found anything) and Reason (empty on ordinary success; otherwise a prefix plus text - noop/clamped/partial/defaulted when Success is true, rejected/invalid/unsupported/unavailable when it is false)"
+      },
+      "item": {
+        "base": "Tizen.Entity.Playable",
+        "description": "Base of every playable item: Title, Formats (audio/video; empty=unknown, video implies audio). A base(Playable) slot may omit TypeName - treat as untyped. Never Station or Artist"
+      },
+      "station": {
+        "type": "Tizen.Entity.Station",
+        "description": "An endless stream from Seed (SeedType: artist/track/album/genre) and IsLive. Start via Tv_Tizen.Action.Music_StartStation, not Tv_Tizen.Action.Music_Play. Cannot be seeked. Has no Affinity"
+      },
+      "state": {
+        "type": "Tizen.Entity.PlaybackState",
+        "description": "Read-only playback snapshot that never names the item - the sibling item, or the pane's Content, says what plays. Format is how it renders now, not its type. Change via PlaybackSetting"
+      }
+    }
+  },
+  "details": {
+    "appid": ""
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "typeName": "Tizen.Entity.BrowserMediaOption",
+  "description": "Media playback option: Name (subtitle/shuffle/repeat/playbackspeed/videoquality); Enabled for subtitle and shuffle, RepeatMode (off/one/all), Speed (0.5/1.0/1.5/2.0), Quality (auto/480p/720p/1080p/4k)",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Name"
+    ],
+    "properties": {
+      "Name": {
+        "type": "string",
+        "description": "Which option to set: subtitle, shuffle, repeat, playbackspeed or videoquality; only the matching value field is read",
+        "enum": [
+          "subtitle",
+          "shuffle",
+          "repeat",
+          "playbackspeed",
+          "videoquality"
+        ]
+      },
+      "Enabled": {
+        "type": "boolean",
+        "description": "On or off state, read when Name is subtitle or shuffle"
+      },
+      "RepeatMode": {
+        "type": "string",
+        "description": "Repeat mode off, one or all; read when Name is repeat",
+        "enum": [
+          "off",
+          "one",
+          "all"
+        ]
+      },
+      "Speed": {
+        "type": "string",
+        "description": "Playback rate 0.5, 1.0, 1.5 or 2.0; read when Name is playbackspeed",
+        "enum": [
+          "0.5",
+          "1.0",
+          "1.5",
+          "2.0"
+        ]
+      },
+      "Quality": {
+        "type": "string",
+        "description": "Video quality auto, 480p, 720p, 1080p or 4k; read when Name is videoquality",
+        "enum": [
+          "auto",
+          "480p",
+          "720p",
+          "1080p",
+          "4k"
+        ]
+      }
+    }
+  }
+}

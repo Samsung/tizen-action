@@ -1,0 +1,34 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Browser_Search",
+  "type": "tidl",
+  "category": "Tizen.Action.Browser",
+  "description": "Searches for what the query asks about. Target=web runs a search on the site or default engine, returning Status only; place/product/person/answer answer from the page into BrowserSearchResult",
+  "allowedBackground": "false",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.BrowserQuery"
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "return",
+      "result"
+    ],
+    "properties": {
+      "return": {
+        "type": "Tizen.Entity.Status",
+        "description": "Result wrapper returned by every action, carrying Success (whether the action was carried out, not whether it found anything) and Reason (empty on ordinary success; otherwise a prefix plus text - noop/clamped/partial/defaulted when Success is true, rejected/invalid/unsupported/unavailable when it is false)"
+      },
+      "result": {
+        "type": "Tizen.Entity.BrowserSearchResult",
+        "description": "The result of a Browser_Search call: Answer, Place, Product, or Person; exactly one is populated matching BrowserQuery.Target"
+      }
+    }
+  },
+  "details": {
+    "appid": "org.tizen.next-browser"
+  }
+}

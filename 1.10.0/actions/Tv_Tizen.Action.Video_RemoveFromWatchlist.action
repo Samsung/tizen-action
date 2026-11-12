@@ -1,0 +1,29 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Video_RemoveFromWatchlist",
+  "type": "tidl",
+  "category": "Tizen.Action.Video",
+  "description": "Drops one Content or Series from the watchlist. Undoes Tv_Tizen.Action.Video_AddToWatchlist; the item stays in the catalog and any playback keeps running",
+  "allowedBackground": "true",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "required": [
+      "item"
+    ],
+    "properties": {
+      "item": {
+        "base": "Tizen.Entity.Playable",
+        "description": "Base of every playable item: Title, Formats (audio/video; empty=unknown, video implies audio). A base(Playable) slot may omit TypeName - treat as untyped. Never Station or Artist"
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": ""
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "typeName": "Tizen.Entity.IoTLocation",
+  "description": "A home registered on the user's IoT account, carrying Name, coordinates (Latitude, Longitude), and Radius. Identity is tracked via inherited Id",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Name"
+    ],
+    "properties": {
+      "Name": {
+        "type": "string",
+        "description": "Display name of the home as set in SmartThings, such as Home or Office"
+      },
+      "Latitude": {
+        "type": "number",
+        "description": "Latitude of the home's geolocation in decimal degrees"
+      },
+      "Longitude": {
+        "type": "number",
+        "description": "Longitude of the home's geolocation in decimal degrees"
+      },
+      "Radius": {
+        "type": "number",
+        "description": "Geofence radius around the home's location, in meters"
+      }
+    }
+  }
+}

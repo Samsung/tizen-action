@@ -1,0 +1,29 @@
+{
+  "typeName": "Tizen.Entity.Device",
+  "description": "A lightweight smart-home device carrying Name, Location, Room, and Health state. Identity is tracked via inherited Id",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Name"
+    ],
+    "properties": {
+      "Name": {
+        "type": "string",
+        "description": "Display name of the device as set in SmartThings"
+      },
+      "Location": {
+        "type": "Tizen.Entity.IoTLocation",
+        "description": "A home registered on the user's IoT account, carrying Name, coordinates (Latitude, Longitude), and Radius. Identity is tracked via inherited Id"
+      },
+      "Room": {
+        "type": "Tizen.Entity.IoTRoom",
+        "description": "A room with Name within an IoTLocation. Identity is tracked via inherited Id"
+      },
+      "Health": {
+        "type": "boolean",
+        "description": "True when the device is online and reachable, false when offline"
+      }
+    }
+  }
+}

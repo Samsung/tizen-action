@@ -1,0 +1,34 @@
+{
+  "typeName": "Tizen.Entity.TabCommand",
+  "description": "Tab management request; Operation is create, switch, or close; Create uses Page (omitted means a blank tab) and Secret; Switch/Close use Tab (by Id or Ordinal)",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Operation"
+    ],
+    "properties": {
+      "Operation": {
+        "type": "string",
+        "description": "create opens a new tab, switch brings Tab to the front, close closes Tab",
+        "enum": [
+          "create",
+          "switch",
+          "close"
+        ]
+      },
+      "Page": {
+        "type": "Tizen.Entity.WebPageInfo",
+        "description": "A web page; Url and Title are the required identifying fields, Details is a human-readable summary of the page"
+      },
+      "Tab": {
+        "type": "Tizen.Entity.Tab",
+        "description": "An open browser tab: the Page it shows, its Ordinal in the tab strip, Focused for the tab in front, and Secret. Url and Title are read from the composed WebPageInfo"
+      },
+      "Secret": {
+        "type": "boolean",
+        "description": "True to open the new tab as a secret tab; read only when Operation is create"
+      }
+    }
+  }
+}

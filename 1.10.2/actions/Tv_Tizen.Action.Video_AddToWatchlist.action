@@ -1,0 +1,30 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Video_AddToWatchlist",
+  "type": "tidl",
+  "category": "Tizen.Action.Video",
+  "description": "Saves one Content or Series to the watchlist. A bookmark only - it neither starts nor queues playback. Undo with Tv_Tizen.Action.Video_RemoveFromWatchlist",
+  "allowedBackground": "true",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "required": [
+      "item"
+    ],
+    "properties": {
+      "item": {
+        "base": "Tizen.Entity.Playable",
+        "description": "Base of every playable item: Title, Formats (audio/video; empty=unknown, video implies audio). A base(Playable) slot may omit TypeName - treat as untyped. Never Station or Artist"
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": ""
+  }
+}

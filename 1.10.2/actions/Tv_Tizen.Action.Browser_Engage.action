@@ -1,0 +1,22 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Browser_Engage",
+  "type": "tidl",
+  "category": "Tizen.Action.Browser",
+  "description": "Engage with the content currently shown: like, subscribe (site specific)",
+  "allowedBackground": "false",
+  "requiresRunning": true,
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.EngageCommand"
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": "org.tizen.next-browser"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "typeName": "Tizen.Entity.UtteranceQuery",
+  "description": "Pass the user's whole sentence as-is - the app parses it. Limit caps results. Set Format only if the user named audio/video. Origin agent when the sentence was rewritten, not spoken",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Utterance"
+    ],
+    "properties": {
+      "Utterance": {
+        "type": "string",
+        "description": "The user's whole sentence exactly as spoken or typed, for the provider to parse itself"
+      },
+      "Limit": {
+        "type": "integer",
+        "description": "Maximum number of results to return; the provider may clamp it and say so in Status.Reason"
+      },
+      "Format": {
+        "type": "string",
+        "description": "audio or video, set only when the user explicitly named the form; otherwise leave empty for the provider to decide",
+        "enum": [
+          "audio",
+          "video"
+        ]
+      },
+      "Origin": {
+        "type": "string",
+        "description": "user when the sentence is the user's own words, agent when the agent rewrote or composed it",
+        "enum": [
+          "user",
+          "agent"
+        ]
+      }
+    }
+  }
+}

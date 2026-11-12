@@ -1,0 +1,22 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Browser_SelectItem",
+  "type": "tidl",
+  "category": "Tizen.Action.Browser",
+  "description": "Select an item on the page by ordinal, title or deixis",
+  "allowedBackground": "false",
+  "requiresRunning": true,
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.BrowserSelection"
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": "org.tizen.next-browser"
+  }
+}

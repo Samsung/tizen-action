@@ -1,0 +1,21 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.ScreenShare_Stop",
+  "type": "tidl",
+  "category": "Tizen.Action.ScreenShare",
+  "description": "Ends the active mirroring or casting session, disconnecting the sender and returning the TV to its previous source. Takes no input. The only way to end a session - PlaybackCommand stop is rejected",
+  "allowedBackground": "false",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "properties": {}
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": "com.samsung.tv.googlecast-service"
+  }
+}

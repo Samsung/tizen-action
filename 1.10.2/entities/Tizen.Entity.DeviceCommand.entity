@@ -1,0 +1,31 @@
+{
+  "typeName": "Tizen.Entity.DeviceCommand",
+  "description": "A remote command carrying Component, Capability, CommandName, and dynamic JSON Arguments payload, matching the SmartThings execution schema",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Component",
+      "Capability",
+      "CommandName"
+    ],
+    "properties": {
+      "Component": {
+        "type": "string",
+        "description": "SmartThings component to command, main for a single-component device"
+      },
+      "Capability": {
+        "type": "string",
+        "description": "SmartThings capability the command belongs to, such as switch"
+      },
+      "CommandName": {
+        "type": "string",
+        "description": "Name of the command within the capability, such as on or setLevel"
+      },
+      "Arguments": {
+        "type": "string",
+        "description": "JSON array as text, [] when the command takes none; build the items from the ArgumentsSchema"
+      }
+    }
+  }
+}

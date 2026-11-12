@@ -1,0 +1,23 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Browser_Exit",
+  "type": "tidl",
+  "category": "Tizen.Action.Browser",
+  "description": "Close the browser application. A not-running error means the browser is already closed - do not launch it to retry",
+  "allowedBackground": "false",
+  "requiresRunning": true,
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "properties": {}
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": "org.tizen.next-browser"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "version": "v2",
+  "name": "Common_Tizen.Action.View_FindById",
+  "type": "tidl",
+  "category": "Tizen.Action.View",
+  "description": "Find a view by its identifier",
+  "allowedBackground": "false",
+  "requiresRunning": true,
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "required": [
+      "id"
+    ],
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "Identifier of the view to find, as returned in an earlier View's Id"
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "return",
+      "view"
+    ],
+    "properties": {
+      "return": {
+        "type": "Tizen.Entity.Status",
+        "description": "Result wrapper returned by every action, carrying Success (whether the action was carried out, not whether it found anything) and Reason (empty on ordinary success; otherwise a prefix plus text - noop/clamped/partial/defaulted when Success is true, rejected/invalid/unsupported/unavailable when it is false)"
+      },
+      "view": {
+        "type": "&Tizen.Entity.View",
+        "description": "An on-screen UI element carrying its runtime Type, a human-readable Description, its screen and window bounds, focus and enabled state, and the App Entity annotation the app attached to it"
+      }
+    }
+  },
+  "details": {
+    "appid": "org.tizen.action-framework.service"
+  }
+}

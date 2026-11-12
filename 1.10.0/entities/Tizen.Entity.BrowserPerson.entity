@@ -1,0 +1,25 @@
+{
+  "typeName": "Tizen.Entity.BrowserPerson",
+  "description": "A person the page is about: Name, Role, and Description",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Name"
+    ],
+    "properties": {
+      "Name": {
+        "type": "string",
+        "description": "Full name of the person the current page is mainly about"
+      },
+      "Role": {
+        "type": "string",
+        "description": "Role or occupation of the person as the page states it, such as actor or CEO"
+      },
+      "Description": {
+        "type": "string",
+        "description": "Short summary of who the person is, taken from the page text"
+      }
+    }
+  }
+}

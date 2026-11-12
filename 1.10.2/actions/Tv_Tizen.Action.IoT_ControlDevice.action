@@ -1,0 +1,35 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.IoT_ControlDevice",
+  "type": "tidl",
+  "category": "Tizen.Action.IoT",
+  "description": "Executes a DeviceCommand (Component/Capability/Attribute/Arguments) on a Device. Read SupportedDeviceCommands directly from Tv_Tizen.Action.IoT_GetSupportedCommands first",
+  "allowedBackground": "true",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "requiresConfirmation": true,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "required": [
+      "Device",
+      "DeviceCommand"
+    ],
+    "properties": {
+      "Device": {
+        "type": "Tizen.Entity.Device",
+        "description": "A lightweight smart-home device carrying Name, Location, Room, and Health state. Identity is tracked via inherited Id"
+      },
+      "DeviceCommand": {
+        "type": "Tizen.Entity.DeviceCommand",
+        "description": "A remote command carrying Component, Capability, CommandName, and dynamic JSON Arguments payload, matching the SmartThings execution schema"
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": "com.samsung.tizen.smartthings-client"
+  }
+}

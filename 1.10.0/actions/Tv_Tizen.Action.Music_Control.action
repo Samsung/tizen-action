@@ -1,0 +1,22 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Music_Control",
+  "type": "tidl",
+  "category": "Tizen.Action.Music",
+  "description": "Sends a transport PlaybackCommand - play, pause, stop, seek, skips. Shuffle/repeat: Tv_Tizen.Action.Music_SetState. Unclear category? Check Tv_Tizen.Action.Music_GetCurrent",
+  "allowedBackground": "false",
+  "autoDispose": "false",
+  "requiredPrivileges": [
+    "http://tizen.org/privilege/mediacontroller.client"
+  ],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.PlaybackCommand"
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": ""
+  }
+}

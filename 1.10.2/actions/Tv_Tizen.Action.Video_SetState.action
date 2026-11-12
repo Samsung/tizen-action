@@ -1,0 +1,24 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Video_SetState",
+  "type": "tidl",
+  "category": "Tizen.Action.Video",
+  "description": "Applies playback modes in PlaybackSetting - shuffle, repeat, speed. Omitted fields stay unchanged; seek: Tv_Tizen.Action.Video_Control. Unclear category? Check Tv_Tizen.Action.Video_GetCurrent",
+  "allowedBackground": "false",
+  "requiresRunning": true,
+  "autoDispose": "false",
+  "requiredPrivileges": [
+    "http://tizen.org/privilege/mediacontroller.client"
+  ],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.PlaybackSetting"
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": ""
+  }
+}

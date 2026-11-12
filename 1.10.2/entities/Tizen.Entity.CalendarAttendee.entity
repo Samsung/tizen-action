@@ -1,0 +1,22 @@
+{
+  "typeName": "Tizen.Entity.CalendarAttendee",
+  "description": "Someone attending a calendar event; every field is optional, so an attendee known only by address carries Email alone",
+  "dataSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "Name": {
+        "type": "string",
+        "description": "Display name of the attendee; may be sent alone when no address is known"
+      },
+      "Email": {
+        "type": "string",
+        "description": "Email address of the attendee; when present an invitation is sent to it"
+      },
+      "Optional": {
+        "type": "boolean",
+        "description": "True when the attendee's presence is not required; false when omitted"
+      }
+    }
+  }
+}

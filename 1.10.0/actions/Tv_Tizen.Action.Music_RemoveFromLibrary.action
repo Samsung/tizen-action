@@ -1,0 +1,29 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Music_RemoveFromLibrary",
+  "type": "tidl",
+  "category": "Tizen.Action.Music",
+  "description": "Removes one Playable item from the user library, unfollowing a PodcastShow. Undoes Tv_Tizen.Action.Music_AddToLibrary; it leaves Affinity to Tv_Tizen.Action.Music_SetAffinity",
+  "allowedBackground": "true",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "required": [
+      "item"
+    ],
+    "properties": {
+      "item": {
+        "base": "Tizen.Entity.Playable",
+        "description": "Base of every playable item: Title, Formats (audio/video; empty=unknown, video implies audio). A base(Playable) slot may omit TypeName - treat as untyped. Never Station or Artist"
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": ""
+  }
+}

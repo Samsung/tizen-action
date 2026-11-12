@@ -1,0 +1,21 @@
+{
+  "typeName": "Tizen.Entity.Artist",
+  "description": "A music artist with Name and Genre. Returned by artist search; an artist cannot be handed to Tv_Tizen.Action.Music_Play - search for tracks by that artist and play those instead",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Name"
+    ],
+    "properties": {
+      "Name": {
+        "type": "string",
+        "description": "Name of the artist or group as the provider shows it"
+      },
+      "Genre": {
+        "type": "string",
+        "description": "Main musical genre the provider associates with the artist"
+      }
+    }
+  }
+}

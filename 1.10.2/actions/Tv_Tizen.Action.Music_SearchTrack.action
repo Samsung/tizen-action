@@ -1,0 +1,39 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Music_SearchTrack",
+  "type": "tidl",
+  "category": "Tizen.Action.Music",
+  "description": "Returns Track items. Needs at least one filter set. Albums: Tv_Tizen.Action.Music_SearchAlbum; music video: Tv_Tizen.Action.Music_Search, which takes a sentence",
+  "allowedBackground": "true",
+  "allowedFanout": true,
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.MusicQuery"
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "return",
+      "result"
+    ],
+    "properties": {
+      "return": {
+        "type": "Tizen.Entity.Status",
+        "description": "Result wrapper returned by every action, carrying Success (whether the action was carried out, not whether it found anything) and Reason (empty on ordinary success; otherwise a prefix plus text - noop/clamped/partial/defaulted when Success is true, rejected/invalid/unsupported/unavailable when it is false)"
+      },
+      "result": {
+        "type": "array",
+        "description": "A music track with Title (from Playable), Artist, Album, Duration, Genre, TrackNumber, File (empty when streamed), Affinity (liked/disliked/unset), and CoverUrl. See PlaybackState for position",
+        "items": {
+          "type": "Tizen.Entity.Track"
+        }
+      }
+    }
+  },
+  "details": {
+    "appid": ""
+  }
+}

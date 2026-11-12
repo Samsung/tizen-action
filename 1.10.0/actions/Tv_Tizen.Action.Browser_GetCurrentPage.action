@@ -1,0 +1,34 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Browser_GetCurrentPage",
+  "type": "tidl",
+  "category": "Tizen.Action.Browser",
+  "description": "Get the current page; absent when no page is loaded",
+  "allowedBackground": "false",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "properties": {}
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "return"
+    ],
+    "properties": {
+      "return": {
+        "type": "Tizen.Entity.Status",
+        "description": "Result wrapper returned by every action, carrying Success (whether the action was carried out, not whether it found anything) and Reason (empty on ordinary success; otherwise a prefix plus text - noop/clamped/partial/defaulted when Success is true, rejected/invalid/unsupported/unavailable when it is false)"
+      },
+      "result": {
+        "type": "Tizen.Entity.WebPageInfo",
+        "description": "A web page; Url and Title are the required identifying fields, Details is a human-readable summary of the page"
+      }
+    }
+  },
+  "details": {
+    "appid": "org.tizen.next-browser"
+  }
+}

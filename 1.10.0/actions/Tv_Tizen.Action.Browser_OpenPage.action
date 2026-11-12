@@ -1,0 +1,20 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Browser_OpenPage",
+  "type": "tidl",
+  "category": "Tizen.Action.Browser",
+  "description": "Open a URL in the browser; also opens a saved list item by passing its Page",
+  "allowedBackground": "false",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.WebPageInfo"
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": "org.tizen.next-browser"
+  }
+}

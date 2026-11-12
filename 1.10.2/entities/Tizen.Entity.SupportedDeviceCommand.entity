@@ -1,0 +1,31 @@
+{
+  "typeName": "Tizen.Entity.SupportedDeviceCommand",
+  "description": "An executable command the device supports: Component, Capability, CommandName, and an ArgumentsSchema for AI command synthesis",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Component",
+      "Capability",
+      "CommandName"
+    ],
+    "properties": {
+      "Component": {
+        "type": "string",
+        "description": "SmartThings component the command belongs to, main for a single-component device"
+      },
+      "Capability": {
+        "type": "string",
+        "description": "SmartThings capability offering the command, such as switch or switchLevel"
+      },
+      "CommandName": {
+        "type": "string",
+        "description": "Name of the command within the capability, such as on, off or setLevel"
+      },
+      "ArgumentsSchema": {
+        "type": "string",
+        "description": "Text guide to the arguments the command takes, read to build DeviceCommand.Arguments; absent when it takes none"
+      }
+    }
+  }
+}

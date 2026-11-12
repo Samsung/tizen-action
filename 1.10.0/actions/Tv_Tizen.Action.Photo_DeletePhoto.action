@@ -1,0 +1,36 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Photo_DeletePhoto",
+  "type": "tidl",
+  "category": "Tizen.Action.Photo",
+  "description": "Delete photos from the gallery",
+  "allowedBackground": "true",
+  "autoDispose": "false",
+  "requiredPrivileges": [
+    "http://tizen.org/privilege/content.write",
+    "http://tizen.org/privilege/mediastorage",
+    "http://tizen.org/privilege/externalstorage"
+  ],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "required": [
+      "Photo"
+    ],
+    "properties": {
+      "Photo": {
+        "type": "array",
+        "description": "A photo or video item from a photo app or the TV camera: Location, Date, File, Note, ThumbnailUrl, MediaType (photo or video), the People, Activities and Objects found in it, and the Source it came from",
+        "items": {
+          "type": "Tizen.Entity.Photo"
+        }
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": ""
+  }
+}

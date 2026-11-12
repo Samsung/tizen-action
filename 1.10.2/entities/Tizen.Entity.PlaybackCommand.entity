@@ -1,0 +1,37 @@
+{
+  "typeName": "Tizen.Entity.PlaybackCommand",
+  "description": "One transport move per call; play, pause, stop and seek are mandatory, others best-effort. To move in the item try seek (Position), then skip_backward/skip_forward (Offset), then rewind/fast_forward",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Operation"
+    ],
+    "properties": {
+      "Operation": {
+        "type": "string",
+        "description": "Transport move: play, pause, stop, rewind, fast_forward, item_previous, item_next, skip_backward, skip_forward or seek",
+        "enum": [
+          "play",
+          "pause",
+          "stop",
+          "rewind",
+          "fast_forward",
+          "item_previous",
+          "item_next",
+          "skip_backward",
+          "skip_forward",
+          "seek"
+        ]
+      },
+      "Offset": {
+        "type": "integer",
+        "description": "Seconds to skip; read only when Operation is skip_backward or skip_forward"
+      },
+      "Position": {
+        "type": "integer",
+        "description": "Absolute position in seconds to jump to; read only when Operation is seek"
+      }
+    }
+  }
+}

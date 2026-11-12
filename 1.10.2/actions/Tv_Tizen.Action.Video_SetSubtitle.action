@@ -1,0 +1,37 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Video_SetSubtitle",
+  "type": "tidl",
+  "category": "Tizen.Action.Video",
+  "description": "Turns the subtitle track on or off, and optionally sets its language (BCP-47, e.g. ko/en); omit language to leave it unchanged. Subtitles only, not audio language",
+  "allowedBackground": "false",
+  "requiresRunning": true,
+  "autoDispose": "false",
+  "requiredPrivileges": [
+    "http://tizen.org/privilege/mediacontroller.client"
+  ],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "required": [
+      "enabled"
+    ],
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "description": "True to turn the subtitle track on, false to turn it off"
+      },
+      "language": {
+        "type": "string",
+        "description": "Subtitle language as a BCP-47 tag such as ko or en; omit to leave it unchanged"
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": ""
+  }
+}

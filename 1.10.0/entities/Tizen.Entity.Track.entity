@@ -1,0 +1,50 @@
+{
+  "typeName": "Tizen.Entity.Track",
+  "description": "A music track with Title (from Playable), Artist, Album, Duration, Genre, TrackNumber, File (empty when streamed), Affinity (liked/disliked/unset), and CoverUrl. See PlaybackState for position",
+  "base": "Tizen.Entity.Playable",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Affinity"
+    ],
+    "properties": {
+      "Artist": {
+        "type": "Tizen.Entity.Artist",
+        "description": "A music artist with Name and Genre. Returned by artist search; an artist cannot be handed to Tv_Tizen.Action.Music_Play - search for tracks by that artist and play those instead"
+      },
+      "Album": {
+        "type": "Tizen.Entity.Album",
+        "description": "A music album with Title (from Playable), Artist, ReleaseDate, TrackCount, and CoverUrl. Pass one to Tv_Tizen.Action.Music_Play; find one with Tv_Tizen.Action.Music_SearchAlbum"
+      },
+      "Duration": {
+        "type": "integer",
+        "description": "Total running time of the track in seconds"
+      },
+      "Genre": {
+        "type": "string",
+        "description": "Musical genre of the track, such as jazz or k-pop"
+      },
+      "TrackNumber": {
+        "type": "integer",
+        "description": "Position of the track on its album, starting at 1"
+      },
+      "File": {
+        "type": "Tizen.Entity.File",
+        "description": "A file on a storage medium, with Path, StorageType (internal/usb/network), Size and ModifiedDate. Carried by Track.File and Content.File, and played on its own by the PlayFile actions"
+      },
+      "Affinity": {
+        "type": "string",
+        "description": "The user's like state: liked, disliked or unset; changed with Tv_Tizen.Action.Music_SetAffinity",
+        "enum": [
+          "liked",
+          "disliked",
+          "unset"
+        ]
+      },
+      "CoverUrl": {
+        "type": "string",
+        "description": "URL of the track's cover art image, used only for display"
+      }
+    }
+  }
+}

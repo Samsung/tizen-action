@@ -1,0 +1,38 @@
+{
+  "typeName": "Tizen.Entity.Workout",
+  "description": "A guided workout with Title, Type, Duration, EstimatedCalories, and Difficulty (beginner/intermediate/advanced)",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Title"
+    ],
+    "properties": {
+      "Title": {
+        "type": "string",
+        "description": "Name of the guided workout as shown in the health app"
+      },
+      "Type": {
+        "type": "string",
+        "description": "Exercise type as free text, such as yoga or HIIT, in the app's own taxonomy"
+      },
+      "Duration": {
+        "type": "integer",
+        "description": "Planned length of the workout as an integer, in the app's own unit, minutes expected"
+      },
+      "EstimatedCalories": {
+        "type": "integer",
+        "description": "Calories the workout is expected to burn, in kcal"
+      },
+      "Difficulty": {
+        "type": "string",
+        "description": "Difficulty level: beginner, intermediate or advanced",
+        "enum": [
+          "beginner",
+          "intermediate",
+          "advanced"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "typeName": "Tizen.Entity.DeviceQuery",
+  "description": "Device search filters extending Query: Location and Room to scope by place, Health state filter, DeviceCategory filter, plus inherited Keyword",
+  "base": "Tizen.Entity.Query",
+  "dataSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "Location": {
+        "type": "Tizen.Entity.IoTLocation",
+        "description": "A home registered on the user's IoT account, carrying Name, coordinates (Latitude, Longitude), and Radius. Identity is tracked via inherited Id"
+      },
+      "Room": {
+        "type": "Tizen.Entity.IoTRoom",
+        "description": "A room with Name within an IoTLocation. Identity is tracked via inherited Id"
+      },
+      "Health": {
+        "type": "boolean",
+        "description": "True returns only online devices, false only offline; empty means no restriction"
+      },
+      "DeviceCategory": {
+        "type": "string",
+        "description": "Device kind to restrict to, such as Light, Switch or AirConditioner"
+      }
+    }
+  }
+}

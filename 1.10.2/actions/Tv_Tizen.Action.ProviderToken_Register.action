@@ -1,0 +1,22 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.ProviderToken_Register",
+  "type": "tidl",
+  "category": "Tizen.Action.ProviderToken",
+  "description": "Called by the platform, not the agent, when the app's REST endpoint token is missing or rejected: register a valid token via ActionServiceProxy.setProviderToken, refreshed if expired; no UI; 'unavailable: not signed in' when signed out",
+  "allowedBackground": "true",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "properties": {}
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": ""
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Video_Control",
+  "type": "tidl",
+  "category": "Tizen.Action.Video",
+  "description": "Sends a PlaybackCommand - play, pause, stop, seek, skips - to Content or the focused pane. Shuffle/repeat: Tv_Tizen.Action.Video_SetState. Unclear category? Check Tv_Tizen.Action.Video_GetCurrent",
+  "allowedBackground": "false",
+  "requiresRunning": true,
+  "autoDispose": "false",
+  "requiredPrivileges": [
+    "http://tizen.org/privilege/mediacontroller.client"
+  ],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "required": [
+      "PlaybackCommand"
+    ],
+    "properties": {
+      "PlaybackCommand": {
+        "type": "Tizen.Entity.PlaybackCommand",
+        "description": "One transport move per call; play, pause, stop and seek are mandatory, others best-effort. To move in the item try seek (Position), then skip_backward/skip_forward (Offset), then rewind/fast_forward"
+      },
+      "content": {
+        "base": "Tizen.Entity.Content",
+        "description": "One video item - movie, episode, clip, artist_video or sports_event, from a local file, vod or live stream; movie has no subtype, the others map to Episode/Clip/ArtistVideo/SportsEvent"
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": ""
+  }
+}

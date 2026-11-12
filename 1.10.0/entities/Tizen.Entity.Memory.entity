@@ -1,0 +1,29 @@
+{
+  "typeName": "Tizen.Entity.Memory",
+  "description": "One curated memory such as a trip highlight reel: Title, Subtitle, CoverPhoto, and a DeepLink URI opening it outside the action framework. Titles repeat, so Photo_PlayMemory takes the inherited Id",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Title"
+    ],
+    "properties": {
+      "Title": {
+        "type": "string",
+        "description": "Title of the memory as the photo app shows it; titles may repeat, so use Id to name one"
+      },
+      "Subtitle": {
+        "type": "string",
+        "description": "Secondary line under the title, such as a date range or place"
+      },
+      "CoverPhoto": {
+        "type": "Tizen.Entity.File",
+        "description": "A file on a storage medium, with Path, StorageType (internal/usb/network), Size and ModifiedDate. Carried by Track.File and Content.File, and played on its own by the PlayFile actions"
+      },
+      "DeepLink": {
+        "type": "string",
+        "description": "URI that opens the memory directly in the app, for surfaces that bypass Photo_PlayMemory"
+      }
+    }
+  }
+}

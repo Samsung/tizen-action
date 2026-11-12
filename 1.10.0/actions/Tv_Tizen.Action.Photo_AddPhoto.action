@@ -1,0 +1,37 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Photo_AddPhoto",
+  "type": "tidl",
+  "category": "Tizen.Action.Photo",
+  "description": "Add a photo to the gallery; returns the created Photo with its Id",
+  "allowedBackground": "true",
+  "autoDispose": "false",
+  "requiredPrivileges": [
+    "http://tizen.org/privilege/content.write",
+    "http://tizen.org/privilege/mediastorage",
+    "http://tizen.org/privilege/externalstorage"
+  ],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.Photo"
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "return"
+    ],
+    "properties": {
+      "return": {
+        "type": "Tizen.Entity.Status",
+        "description": "Result wrapper returned by every action, carrying Success (whether the action was carried out, not whether it found anything) and Reason (empty on ordinary success; otherwise a prefix plus text - noop/clamped/partial/defaulted when Success is true, rejected/invalid/unsupported/unavailable when it is false)"
+      },
+      "result": {
+        "type": "Tizen.Entity.Photo",
+        "description": "A photo or video item from a photo app or the TV camera: Location, Date, File, Note, ThumbnailUrl, MediaType (photo or video), the People, Activities and Objects found in it, and the Source it came from"
+      }
+    }
+  },
+  "details": {
+    "appid": ""
+  }
+}

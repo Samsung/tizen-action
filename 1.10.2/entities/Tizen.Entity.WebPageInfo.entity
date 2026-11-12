@@ -1,0 +1,26 @@
+{
+  "typeName": "Tizen.Entity.WebPageInfo",
+  "description": "A web page; Url and Title are the required identifying fields, Details is a human-readable summary of the page",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Url",
+      "Title"
+    ],
+    "properties": {
+      "Url": {
+        "type": "string",
+        "description": "Full address of the web page, including the scheme"
+      },
+      "Title": {
+        "type": "string",
+        "description": "Title of the web page as the browser shows it in the tab"
+      },
+      "Details": {
+        "type": "string",
+        "description": "Human-readable summary of the page content; absent when none is available"
+      }
+    }
+  }
+}

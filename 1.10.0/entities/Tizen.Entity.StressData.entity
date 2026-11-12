@@ -1,0 +1,30 @@
+{
+  "typeName": "Tizen.Entity.StressData",
+  "description": "Stress for one Day: the numeric Score, and a coarse Level when the app bands it",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Day",
+      "Score"
+    ],
+    "properties": {
+      "Day": {
+        "type": "string",
+        "description": "Day the stress reading covers, as a date string"
+      },
+      "Score": {
+        "type": "integer",
+        "description": "Stress score as an integer from 0 to 100 on the app's scale"
+      },
+      "Level": {
+        "type": "string",
+        "description": "low for Score under 30, medium for 30 to 69, high for 70 and above; absent when the app does not band it",
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ]
+      }
+    }
+  }
+}

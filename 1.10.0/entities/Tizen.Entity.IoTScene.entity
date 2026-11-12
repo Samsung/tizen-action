@@ -1,0 +1,21 @@
+{
+  "typeName": "Tizen.Entity.IoTScene",
+  "description": "A scene or routine with Name and Location. Identity is tracked via inherited Id",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Name"
+    ],
+    "properties": {
+      "Name": {
+        "type": "string",
+        "description": "Display name of the scene or routine as set in SmartThings, such as Good night"
+      },
+      "Location": {
+        "type": "Tizen.Entity.IoTLocation",
+        "description": "A home registered on the user's IoT account, carrying Name, coordinates (Latitude, Longitude), and Radius. Identity is tracked via inherited Id"
+      }
+    }
+  }
+}

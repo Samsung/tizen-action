@@ -1,0 +1,42 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.ScreenContext_GetCurrent",
+  "type": "tidl",
+  "category": "Tizen.Action.ScreenContext",
+  "description": "For Pick to Action only: get the foreground app's ScreenContext, versioned JSON about the content on screen such as a movie, product, person or match; locale requests localized text (BCP-47, e.g. ko/en); absent when the app provides none",
+  "allowedBackground": "false",
+  "requiresRunning": true,
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "locale": {
+        "type": "string",
+        "description": "Language for localized text as a BCP-47 tag such as ko or en; omit to leave the language to the provider"
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "return"
+    ],
+    "properties": {
+      "return": {
+        "type": "Tizen.Entity.Status",
+        "description": "Result wrapper returned by every action, carrying Success (whether the action was carried out, not whether it found anything) and Reason (empty on ordinary success; otherwise a prefix plus text - noop/clamped/partial/defaulted when Success is true, rejected/invalid/unsupported/unavailable when it is false)"
+      },
+      "result": {
+        "type": "Tizen.Entity.ScreenContext",
+        "description": "Screen Context value returned for the content currently shown by the foreground app; SchemaVersion identifies the schema of the JSON content and ContextJson is that JSON-serialized content, which may describe common display fields such as image, title, subtitle and description plus app/domain-specific context such as a product, movie, person or match"
+      }
+    }
+  },
+  "details": {
+    "appid": "org.tizen.action-framework.service"
+  }
+}

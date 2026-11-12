@@ -1,0 +1,35 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Music_RemoveFromPlaylist",
+  "type": "tidl",
+  "category": "Tizen.Action.Music",
+  "description": "Removes one Playable item from a specific user Playlist. Edits the saved playlist permanently; use Tv_Tizen.Action.Music_RemoveFromQueue to drop an item from the now-playing order only",
+  "allowedBackground": "true",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "required": [
+      "item",
+      "playlist"
+    ],
+    "properties": {
+      "item": {
+        "base": "Tizen.Entity.Playable",
+        "description": "Base of every playable item: Title, Formats (audio/video; empty=unknown, video implies audio). A base(Playable) slot may omit TypeName - treat as untyped. Never Station or Artist"
+      },
+      "playlist": {
+        "type": "Tizen.Entity.Playlist",
+        "description": "A user-created or curated set of items with Title (from Playable), Owner, TrackCount and CoverUrl. Items: Tv_Tizen.Action.Music_GetPlaylistTracks; distinct from Queue, the now-playing order"
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": ""
+  }
+}

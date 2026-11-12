@@ -1,0 +1,36 @@
+{
+  "typeName": "Tizen.Entity.SportsEvent",
+  "description": "A sports match with League, HomeTeam, AwayTeam, StartTime and Venue. Usually carries SourceType live, which blocks seeking; the ContentQuery League and Team filters exist for this type only",
+  "base": "Tizen.Entity.Content",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "League",
+      "HomeTeam",
+      "AwayTeam",
+      "StartTime"
+    ],
+    "properties": {
+      "League": {
+        "type": "string",
+        "description": "Name of the league or competition, such as NBA or Premier League"
+      },
+      "HomeTeam": {
+        "type": "string",
+        "description": "Name of the home team, as a plain string rather than a SportsTeam"
+      },
+      "AwayTeam": {
+        "type": "string",
+        "description": "Name of the away team, as a plain string rather than a SportsTeam"
+      },
+      "StartTime": {
+        "type": "string",
+        "description": "Scheduled start of the match, as a datetime string"
+      },
+      "Venue": {
+        "type": "string",
+        "description": "Name of the stadium or arena where the match is played"
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "typeName": "Tizen.Entity.IoTRoom",
+  "description": "A room with Name within an IoTLocation. Identity is tracked via inherited Id",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Name"
+    ],
+    "properties": {
+      "Name": {
+        "type": "string",
+        "description": "Display name of the room as set in SmartThings, such as Living room"
+      },
+      "Location": {
+        "type": "Tizen.Entity.IoTLocation",
+        "description": "A home registered on the user's IoT account, carrying Name, coordinates (Latitude, Longitude), and Radius. Identity is tracked via inherited Id"
+      }
+    }
+  }
+}

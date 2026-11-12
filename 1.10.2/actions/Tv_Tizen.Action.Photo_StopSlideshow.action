@@ -1,0 +1,23 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Photo_StopSlideshow",
+  "type": "tidl",
+  "category": "Tizen.Action.Photo",
+  "description": "Stop the photo slideshow. A not-running error means no slideshow is playing - do not launch the app to retry",
+  "allowedBackground": "false",
+  "requiresRunning": true,
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "properties": {}
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": ""
+  }
+}

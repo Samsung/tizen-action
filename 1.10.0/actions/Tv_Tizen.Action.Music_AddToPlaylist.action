@@ -1,0 +1,34 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Music_AddToPlaylist",
+  "type": "tidl",
+  "category": "Tizen.Action.Music",
+  "description": "Adds one Playable item - Track, PodcastEpisode or ArtistVideo - to a user Playlist. Takes both since there are many playlists. Permanent; use Tv_Tizen.Action.Music_AddToQueue for temporary order",
+  "allowedBackground": "true",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "required": [
+      "item",
+      "playlist"
+    ],
+    "properties": {
+      "item": {
+        "base": "Tizen.Entity.Playable",
+        "description": "Base of every playable item: Title, Formats (audio/video; empty=unknown, video implies audio). A base(Playable) slot may omit TypeName - treat as untyped. Never Station or Artist"
+      },
+      "playlist": {
+        "type": "Tizen.Entity.Playlist",
+        "description": "A user-created or curated set of items with Title (from Playable), Owner, TrackCount and CoverUrl. Items: Tv_Tizen.Action.Music_GetPlaylistTracks; distinct from Queue, the now-playing order"
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": ""
+  }
+}

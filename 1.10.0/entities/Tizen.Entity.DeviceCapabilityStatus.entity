@@ -1,0 +1,40 @@
+{
+  "typeName": "Tizen.Entity.DeviceCapabilityStatus",
+  "description": "One capability reading: Component, Capability, Attribute, Value, Unit, and Timestamp",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Component",
+      "Capability",
+      "Attribute",
+      "Value"
+    ],
+    "properties": {
+      "Component": {
+        "type": "string",
+        "description": "SmartThings component the reading belongs to, main for a single-component device"
+      },
+      "Capability": {
+        "type": "string",
+        "description": "SmartThings capability the reading comes from, such as switch or temperatureMeasurement"
+      },
+      "Attribute": {
+        "type": "string",
+        "description": "Attribute of the capability that was read, such as switch or temperature"
+      },
+      "Value": {
+        "type": "string",
+        "description": "Current value as text: a number, an on/off state or a serialized object"
+      },
+      "Unit": {
+        "type": "string",
+        "description": "Unit of Value, such as C or %; empty when the reading has none"
+      },
+      "Timestamp": {
+        "type": "string",
+        "description": "When the reading was taken, as an ISO 8601 datetime"
+      }
+    }
+  }
+}

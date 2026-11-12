@@ -1,0 +1,27 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Photo_OpenInGenerativePhoto",
+  "type": "tidl",
+  "category": "Tizen.Action.Photo",
+  "description": "Open a Photo in Generative Photo for AI editing, as the player's Create button does; omit it for the photo shown or focused now, failing when there is none. To just land on the Generative Photo tab: Tv_Tizen.Action.Photo_Open",
+  "allowedBackground": "false",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "photo": {
+        "type": "Tizen.Entity.Photo",
+        "description": "A photo or video item from a photo app or the TV camera: Location, Date, File, Note, ThumbnailUrl, MediaType (photo or video), the People, Activities and Objects found in it, and the Source it came from"
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": ""
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "typeName": "Tizen.Entity.BrowserMedia",
+  "description": "A media element on the current page: Title, Duration, Position, and Playing",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Title",
+      "Playing"
+    ],
+    "properties": {
+      "Title": {
+        "type": "string",
+        "description": "Title of the media element playing in the current page, as the page labels it"
+      },
+      "Duration": {
+        "type": "integer",
+        "description": "Total length of the media in seconds; absent for a live stream"
+      },
+      "Position": {
+        "type": "integer",
+        "description": "Current playback position in seconds from the start"
+      },
+      "Playing": {
+        "type": "boolean",
+        "description": "True while the media is playing, false when paused or stopped"
+      }
+    }
+  }
+}

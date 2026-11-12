@@ -1,0 +1,35 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Photo_Open",
+  "type": "tidl",
+  "category": "Tizen.Action.Photo",
+  "description": "Open the photo app on screen at the given source, such as gallery or Art Mode; a tabbed app opens that source's tab. Returns nothing to render. To find photos by date, person, place, object or activity: Tv_Tizen.Action.Photo_Search, then Tv_Tizen.Action.Photo_StartSlideshow",
+  "allowedBackground": "false",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "source": {
+        "type": "string",
+        "description": "Tab to open: gallery, google_photos, quick_share, art_mode, generative_photo or usb; absent when none",
+        "enum": [
+          "gallery",
+          "google_photos",
+          "quick_share",
+          "art_mode",
+          "generative_photo",
+          "usb"
+        ]
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": ""
+  }
+}

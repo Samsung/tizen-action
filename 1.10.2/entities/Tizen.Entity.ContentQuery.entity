@@ -1,0 +1,90 @@
+{
+  "typeName": "Tizen.Entity.ContentQuery",
+  "description": "Video filters: StorageType(internal/usb/network)=local, SourceType(vod/live)=stream, never both; InWatchlist true=watchlist-only; Cast/Director/Writer=names; Theme=mood/activity/subject/occasion",
+  "base": "Tizen.Entity.Query",
+  "dataSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "Title": {
+        "type": "string",
+        "description": "Title or part of a title of the movie, episode or show to match"
+      },
+      "Cast": {
+        "type": "string",
+        "description": "Name of a cast member to match against Content and Series Cast"
+      },
+      "Director": {
+        "type": "string",
+        "description": "Name of a director to match against Content and Series Director"
+      },
+      "Writer": {
+        "type": "string",
+        "description": "Name of a writer to match against Content and Series Writer"
+      },
+      "Artist": {
+        "type": "string",
+        "description": "Music artist name for artist_video content, matched against ArtistVideo.Artist.Name"
+      },
+      "Genre": {
+        "type": "string",
+        "description": "Genre to match, such as drama, comedy or documentary"
+      },
+      "Theme": {
+        "type": "string",
+        "description": "Mood, activity, subject or occasion as free text, such as feel-good or Christmas"
+      },
+      "AgeRating": {
+        "type": "string",
+        "description": "Rating label the result must carry, such as all or 15"
+      },
+      "SourceType": {
+        "type": "string",
+        "description": "vod for on-demand streams, live for live streams; local files are picked with StorageType instead",
+        "enum": [
+          "vod",
+          "live"
+        ]
+      },
+      "PriceType": {
+        "type": "string",
+        "description": "Commercial terms the result must offer: free, subscription, rent or buy",
+        "enum": [
+          "free",
+          "subscription",
+          "rent",
+          "buy"
+        ]
+      },
+      "League": {
+        "type": "string",
+        "description": "Sports league name for sports_event content, such as NBA"
+      },
+      "Team": {
+        "type": "string",
+        "description": "Sports team name for sports_event content, matched against home or away team"
+      },
+      "ContentType": {
+        "type": "string",
+        "description": "Content.ContentType value to restrict to: movie, episode, clip, artist_video or sports_event"
+      },
+      "ClipType": {
+        "type": "string",
+        "description": "Clip.ClipType value to restrict to: trailer, highlight, recap, teaser or short"
+      },
+      "InWatchlist": {
+        "type": "boolean",
+        "description": "True searches only items saved to the watchlist; false and empty mean no restriction"
+      },
+      "StorageType": {
+        "type": "string",
+        "description": "Where a local file lives: internal, usb or network; leave empty for streaming search",
+        "enum": [
+          "internal",
+          "usb",
+          "network"
+        ]
+      }
+    }
+  }
+}

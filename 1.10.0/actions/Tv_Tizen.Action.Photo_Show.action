@@ -1,0 +1,20 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Photo_Show",
+  "type": "tidl",
+  "category": "Tizen.Action.Photo",
+  "description": "Display a Photo from Photo_Search, or play a video item (MediaType video), in the player; the app finds it by Id. To hang it in Art Mode as framed art: Tv_Tizen.Action.Photo_ShowInArtMode",
+  "allowedBackground": "false",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.Photo"
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": ""
+  }
+}

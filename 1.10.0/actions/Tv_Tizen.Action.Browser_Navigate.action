@@ -1,0 +1,20 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Browser_Navigate",
+  "type": "tidl",
+  "category": "Tizen.Action.Browser",
+  "description": "Navigate or scroll the current page: back, forward, refresh, or scroll in a direction",
+  "allowedBackground": "false",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.NavigationCommand"
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": "org.tizen.next-browser"
+  }
+}

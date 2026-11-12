@@ -1,0 +1,27 @@
+{
+  "typeName": "Tizen.Entity.Album",
+  "description": "A music album with Title (from Playable), Artist, ReleaseDate, TrackCount, and CoverUrl. Pass one to Tv_Tizen.Action.Music_Play; find one with Tv_Tizen.Action.Music_SearchAlbum",
+  "base": "Tizen.Entity.Playable",
+  "dataSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "Artist": {
+        "type": "Tizen.Entity.Artist",
+        "description": "A music artist with Name and Genre. Returned by artist search; an artist cannot be handed to Tv_Tizen.Action.Music_Play - search for tracks by that artist and play those instead"
+      },
+      "ReleaseDate": {
+        "type": "string",
+        "description": "Date the album was released, as a date string such as 2024-05-17"
+      },
+      "TrackCount": {
+        "type": "integer",
+        "description": "Number of tracks the album contains, as reported by the provider"
+      },
+      "CoverUrl": {
+        "type": "string",
+        "description": "URL of the album's cover art image, used only for display"
+      }
+    }
+  }
+}

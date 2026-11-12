@@ -1,0 +1,21 @@
+{
+  "typeName": "Tizen.Entity.Status",
+  "description": "Result wrapper returned by every action, carrying Success (whether the action was carried out, not whether it found anything) and Reason (empty on ordinary success; otherwise a prefix plus text - noop/clamped/partial/defaulted when Success is true, rejected/invalid/unsupported/unavailable when it is false)",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Success",
+      "Reason"
+    ],
+    "properties": {
+      "Success": {
+        "type": "boolean",
+        "description": "True when the action was carried out, regardless of whether anything was found; false when it could not run"
+      },
+      "Reason": {
+        "type": "string",
+        "description": "Empty on a normal run; otherwise a prefix the entity lists, such as clamped: or unavailable:, plus text"
+      }
+    }
+  }
+}

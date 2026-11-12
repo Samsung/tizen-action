@@ -1,0 +1,26 @@
+{
+  "typeName": "Tizen.Entity.PageListCommand",
+  "description": "Page list mutation; Operation is save or remove; Save uses Item.List and Item.Page, Remove uses Item.Id",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Operation",
+      "Item"
+    ],
+    "properties": {
+      "Operation": {
+        "type": "string",
+        "description": "save adds Item to the list named by Item.List, remove deletes the entry Item.Id names",
+        "enum": [
+          "save",
+          "remove"
+        ]
+      },
+      "Item": {
+        "type": "Tizen.Entity.PageListItem",
+        "description": "An entry of a browser page list: List (bookmark/watchlater/history/mostvisited/featured), the Page, Date (save or visit date depending on List), and VisitCount, populated only for history"
+      }
+    }
+  }
+}

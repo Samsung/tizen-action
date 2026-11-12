@@ -1,0 +1,29 @@
+{
+  "typeName": "Tizen.Entity.BrowserProduct",
+  "description": "A product the page is about: Name, Price, Currency, and Seller",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Name"
+    ],
+    "properties": {
+      "Name": {
+        "type": "string",
+        "description": "Name of the product the current page is mainly about"
+      },
+      "Price": {
+        "type": "string",
+        "description": "Price of the product as text, without the currency symbol"
+      },
+      "Currency": {
+        "type": "string",
+        "description": "Currency of Price as an ISO 4217 code such as USD or KRW"
+      },
+      "Seller": {
+        "type": "string",
+        "description": "Name of the seller or store offering the product"
+      }
+    }
+  }
+}

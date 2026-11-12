@@ -1,0 +1,94 @@
+{
+  "typeName": "Tizen.Entity.Content",
+  "description": "One video item - movie, episode, clip, artist_video or sports_event, from a local file, vod or live stream; movie has no subtype, the others map to Episode/Clip/ArtistVideo/SportsEvent",
+  "base": "Tizen.Entity.Playable",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "ContentType",
+      "SourceType",
+      "Cast",
+      "Director",
+      "Writer"
+    ],
+    "properties": {
+      "ContentType": {
+        "type": "string",
+        "description": "Kind of item: movie, episode, clip, artist_video or sports_event; all but movie have a subtype entity",
+        "enum": [
+          "movie",
+          "episode",
+          "clip",
+          "artist_video",
+          "sports_event"
+        ]
+      },
+      "SourceType": {
+        "type": "string",
+        "description": "Where it plays from: local file, vod on-demand stream, or live stream where seeking is blocked",
+        "enum": [
+          "local",
+          "vod",
+          "live"
+        ]
+      },
+      "File": {
+        "type": "Tizen.Entity.File",
+        "description": "A file on a storage medium, with Path, StorageType (internal/usb/network), Size and ModifiedDate. Carried by Track.File and Content.File, and played on its own by the PlayFile actions"
+      },
+      "Duration": {
+        "type": "integer",
+        "description": "Running time in seconds; absent for live content"
+      },
+      "Genre": {
+        "type": "string",
+        "description": "Primary genre such as drama, comedy or documentary"
+      },
+      "AgeRating": {
+        "type": "string",
+        "description": "Age or content rating label, such as 15 or TV-MA, as the provider shows it"
+      },
+      "ReleaseDate": {
+        "type": "string",
+        "description": "Date of first release or air date, as a date string such as 2023-11-02"
+      },
+      "Score": {
+        "type": "number",
+        "description": "Rating from 0.0 to 5.0, normalized across provider apps; absent when unrated"
+      },
+      "Description": {
+        "type": "string",
+        "description": "Synopsis or blurb of the item as the provider shows it"
+      },
+      "PosterUrl": {
+        "type": "string",
+        "description": "URL of the poster or key art image, used only for display"
+      },
+      "Cast": {
+        "type": "array",
+        "description": "A person credited on a content item, carrying Name only. The pointing field fixes the credit - Content and Series Cast, Director and Writer; ContentQuery matches them by plain Name string",
+        "items": {
+          "type": "Tizen.Entity.ContentPerson"
+        }
+      },
+      "Director": {
+        "type": "array",
+        "description": "A person credited on a content item, carrying Name only. The pointing field fixes the credit - Content and Series Cast, Director and Writer; ContentQuery matches them by plain Name string",
+        "items": {
+          "type": "Tizen.Entity.ContentPerson"
+        }
+      },
+      "Writer": {
+        "type": "array",
+        "description": "A person credited on a content item, carrying Name only. The pointing field fixes the credit - Content and Series Cast, Director and Writer; ContentQuery matches them by plain Name string",
+        "items": {
+          "type": "Tizen.Entity.ContentPerson"
+        }
+      },
+      "Offer": {
+        "type": "Tizen.Entity.Offer",
+        "description": "Commercial terms for one item: PriceType (free/subscription/rent/buy), Price, Currency - both empty on free and subscription. Filter via ContentQuery.PriceType"
+      }
+    }
+  }
+}

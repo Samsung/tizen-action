@@ -1,0 +1,29 @@
+{
+  "typeName": "Tizen.Entity.BrowserScreen",
+  "description": "Which built-in browser destination Name to open: home, bookmarks, featured, mostvisited, history, watchlater, opentabs, settings, signin, or addressbar",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Name"
+    ],
+    "properties": {
+      "Name": {
+        "type": "string",
+        "description": "Destination: home, bookmarks, featured, mostvisited, history, watchlater, opentabs, settings, signin or addressbar",
+        "enum": [
+          "home",
+          "bookmarks",
+          "featured",
+          "mostvisited",
+          "history",
+          "watchlater",
+          "opentabs",
+          "settings",
+          "signin",
+          "addressbar"
+        ]
+      }
+    }
+  }
+}

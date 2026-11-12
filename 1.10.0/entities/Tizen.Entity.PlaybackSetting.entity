@@ -1,0 +1,42 @@
+{
+  "typeName": "Tizen.Entity.PlaybackSetting",
+  "description": "Playback modes to change: Shuffle (on/off), Repeat (off/one/all), Speed (0.25/0.5/0.75/1.0/1.25/1.5/1.75/2.0). Omit a field to leave it unchanged; the playhead moves through PlaybackCommand's seek",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "Shuffle": {
+        "type": "string",
+        "description": "Shuffle mode on or off; omit to leave it unchanged",
+        "enum": [
+          "on",
+          "off"
+        ]
+      },
+      "Repeat": {
+        "type": "string",
+        "description": "Repeat mode off, one (current item) or all; omit to leave it unchanged",
+        "enum": [
+          "off",
+          "one",
+          "all"
+        ]
+      },
+      "Speed": {
+        "type": "string",
+        "description": "Playback rate 0.25 to 2.0 in fixed steps; omit to leave it unchanged",
+        "enum": [
+          "0.25",
+          "0.5",
+          "0.75",
+          "1.0",
+          "1.25",
+          "1.5",
+          "1.75",
+          "2.0"
+        ]
+      }
+    }
+  }
+}

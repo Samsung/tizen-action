@@ -1,0 +1,23 @@
+{
+  "typeName": "Tizen.Entity.Playlist",
+  "description": "A user-created or curated set of items with Title (from Playable), Owner, TrackCount and CoverUrl. Items: Tv_Tizen.Action.Music_GetPlaylistTracks; distinct from Queue, the now-playing order",
+  "base": "Tizen.Entity.Playable",
+  "dataSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "Owner": {
+        "type": "string",
+        "description": "Name of the user or curator who owns the playlist"
+      },
+      "TrackCount": {
+        "type": "integer",
+        "description": "Number of items the playlist currently holds"
+      },
+      "CoverUrl": {
+        "type": "string",
+        "description": "URL of the playlist's cover image, used only for display"
+      }
+    }
+  }
+}

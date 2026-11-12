@@ -1,0 +1,23 @@
+{
+  "typeName": "Tizen.Entity.BrowserSelection",
+  "description": "Which item on the current page to select: Ordinal, Title, or Deictic",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "Ordinal": {
+        "type": "integer",
+        "description": "1-based position of the item among the page's selectable items; set exactly one of Ordinal, Title or Deictic"
+      },
+      "Title": {
+        "type": "string",
+        "description": "Visible text of the item to select; set exactly one of Ordinal, Title or Deictic"
+      },
+      "Deictic": {
+        "type": "string",
+        "description": "Pointing phrase the user used, such as this one or the one on the left; set exactly one of the three"
+      }
+    }
+  }
+}

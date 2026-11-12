@@ -1,0 +1,35 @@
+{
+  "typeName": "Tizen.Entity.PodcastQuery",
+  "description": "Podcast search filters extending Query: Publisher, Genre, PublishedFrom and PublishedTo dates, Unplayed (true returns only unplayed episodes) and InLibrary (true searches followed shows only)",
+  "base": "Tizen.Entity.Query",
+  "dataSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "Publisher": {
+        "type": "string",
+        "description": "Name of the publisher or network of the show to match"
+      },
+      "Genre": {
+        "type": "string",
+        "description": "Podcast genre to match, such as news or comedy"
+      },
+      "PublishedFrom": {
+        "type": "string",
+        "description": "Earliest episode date, inclusive; show search keeps shows with an episode in range"
+      },
+      "PublishedTo": {
+        "type": "string",
+        "description": "Latest episode date, inclusive; show search keeps shows with an episode in range"
+      },
+      "Unplayed": {
+        "type": "boolean",
+        "description": "True returns only episodes not yet played; false and empty mean no restriction"
+      },
+      "InLibrary": {
+        "type": "boolean",
+        "description": "True searches only followed shows; false and empty mean no restriction"
+      }
+    }
+  }
+}

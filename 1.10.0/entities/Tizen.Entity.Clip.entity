@@ -1,0 +1,28 @@
+{
+  "typeName": "Tizen.Entity.Clip",
+  "description": "A short derived video with ClipType (trailer/highlight/recap/teaser/short) and OriginContent, the Content it was cut from with subtype intact. Search it with the ContentQuery ClipType filter",
+  "base": "Tizen.Entity.Content",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "ClipType"
+    ],
+    "properties": {
+      "ClipType": {
+        "type": "string",
+        "description": "Kind of clip: trailer, highlight, recap, teaser or short",
+        "enum": [
+          "trailer",
+          "highlight",
+          "recap",
+          "teaser",
+          "short"
+        ]
+      },
+      "OriginContent": {
+        "base": "Tizen.Entity.Content",
+        "description": "One video item - movie, episode, clip, artist_video or sports_event, from a local file, vod or live stream; movie has no subtype, the others map to Episode/Clip/ArtistVideo/SportsEvent"
+      }
+    }
+  }
+}

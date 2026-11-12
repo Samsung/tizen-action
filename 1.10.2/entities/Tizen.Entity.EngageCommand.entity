@@ -1,0 +1,21 @@
+{
+  "typeName": "Tizen.Entity.EngageCommand",
+  "description": "Engagement request on the content currently shown: Operation is like or subscribe",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Operation"
+    ],
+    "properties": {
+      "Operation": {
+        "type": "string",
+        "description": "like to like the shown content, subscribe to subscribe to its channel or creator",
+        "enum": [
+          "like",
+          "subscribe"
+        ]
+      }
+    }
+  }
+}

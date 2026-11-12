@@ -1,0 +1,33 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Video_PlayFile",
+  "type": "tidl",
+  "category": "Tizen.Action.Video",
+  "description": "Plays the single video file at File.Path, with StorageType picking the medium. Takes no search result, unlike Tv_Tizen.Action.Video_Play, which plays a Playable the app already knows",
+  "allowedBackground": "false",
+  "autoDispose": "false",
+  "requiredPrivileges": [
+    "http://tizen.org/privilege/mediastorage",
+    "http://tizen.org/privilege/externalstorage"
+  ],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "required": [
+      "target"
+    ],
+    "properties": {
+      "target": {
+        "type": "Tizen.Entity.File",
+        "description": "A file on a storage medium, with Path, StorageType (internal/usb/network), Size and ModifiedDate. Carried by Track.File and Content.File, and played on its own by the PlayFile actions"
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": "com.samsung.tv.mycontents"
+  }
+}

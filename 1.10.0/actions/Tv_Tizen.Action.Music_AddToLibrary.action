@@ -1,0 +1,29 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Music_AddToLibrary",
+  "type": "tidl",
+  "category": "Tizen.Action.Music",
+  "description": "Saves one Playable item to the user library; a PodcastShow saved this way is what the app shows as followed. Search it later with InLibrary true on MusicQuery or PodcastQuery",
+  "allowedBackground": "true",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "required": [
+      "item"
+    ],
+    "properties": {
+      "item": {
+        "base": "Tizen.Entity.Playable",
+        "description": "Base of every playable item: Title, Formats (audio/video; empty=unknown, video implies audio). A base(Playable) slot may omit TypeName - treat as untyped. Never Station or Artist"
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": ""
+  }
+}

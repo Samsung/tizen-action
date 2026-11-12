@@ -1,0 +1,17 @@
+{
+  "typeName": "Tizen.Entity.ContentPerson",
+  "description": "A person credited on a content item, carrying Name only. The pointing field fixes the credit - Content and Series Cast, Director and Writer; ContentQuery matches them by plain Name string",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Name"
+    ],
+    "properties": {
+      "Name": {
+        "type": "string",
+        "description": "Full name of the credited person; the field holding this entity gives the role"
+      }
+    }
+  }
+}

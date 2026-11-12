@@ -1,0 +1,43 @@
+{
+  "typeName": "Tizen.Entity.ContentPane",
+  "description": "One pane of multiview. Primary(size), Focused(command target), SoundFocus(audio) are independent flags; exactly one Focused, one SoundFocus. Set focus via Tv_Tizen.Action.Video_ControlPane",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Content",
+      "Primary",
+      "SoundFocus"
+    ],
+    "properties": {
+      "Content": {
+        "base": "Tizen.Entity.Content",
+        "description": "One video item - movie, episode, clip, artist_video or sports_event, from a local file, vod or live stream; movie has no subtype, the others map to Episode/Clip/ArtistVideo/SportsEvent"
+      },
+      "Angle": {
+        "type": "Tizen.Entity.ContentAngle",
+        "description": "An alternative camera angle. The list never includes the default feed. person_cam requires Subject. Match a request by Subject.Name, then Label, then AngleType; ask the user if still tied"
+      },
+      "Primary": {
+        "type": "boolean",
+        "description": "True for the pane drawn largest; independent of Focused and SoundFocus"
+      },
+      "Focused": {
+        "type": "boolean",
+        "description": "True for the pane that receives playback commands; exactly one pane; output only"
+      },
+      "SoundFocus": {
+        "type": "boolean",
+        "description": "True for the pane whose audio is heard; exactly one pane at a time"
+      },
+      "Area": {
+        "type": "Tizen.Entity.PaneArea",
+        "description": "The rectangle one pane covers: X, Y (top-left corner), Width, Height, in percent of the panel so layouts read the same at 1080p and 4K. Output only - callers never place a pane by coordinate"
+      },
+      "State": {
+        "type": "Tizen.Entity.PlaybackState",
+        "description": "Read-only playback snapshot that never names the item - the sibling item, or the pane's Content, says what plays. Format is how it renders now, not its type. Change via PlaybackSetting"
+      }
+    }
+  }
+}

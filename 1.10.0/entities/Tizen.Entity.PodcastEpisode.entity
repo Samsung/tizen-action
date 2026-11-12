@@ -1,0 +1,46 @@
+{
+  "typeName": "Tizen.Entity.PodcastEpisode",
+  "description": "A podcast episode. ResumePosition (seconds) is valid only while PlayState is in_progress, else 0. No File field - episodes always stream. Play via Tv_Tizen.Action.Music_Play",
+  "base": "Tizen.Entity.Playable",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "PlayState"
+    ],
+    "properties": {
+      "Show": {
+        "type": "Tizen.Entity.PodcastShow",
+        "description": "A podcast show. Episodes: Tv_Tizen.Action.Music_GetPodcastEpisodes. Play via Tv_Tizen.Action.Music_Play; follow via Tv_Tizen.Action.Music_AddToLibrary, read back with PodcastQuery.InLibrary"
+      },
+      "Description": {
+        "type": "string",
+        "description": "Show notes or blurb of this episode, distinct from the show's own Description"
+      },
+      "PublishedDate": {
+        "type": "string",
+        "description": "When the episode was published, as a date string"
+      },
+      "Duration": {
+        "type": "integer",
+        "description": "Total running time of the episode in seconds"
+      },
+      "CoverUrl": {
+        "type": "string",
+        "description": "URL of the episode's cover image, used only for display"
+      },
+      "PlayState": {
+        "type": "string",
+        "description": "Listening progress: unplayed, in_progress or played",
+        "enum": [
+          "unplayed",
+          "in_progress",
+          "played"
+        ]
+      },
+      "ResumePosition": {
+        "type": "integer",
+        "description": "Seconds into the episode to resume from; valid only while PlayState is in_progress, else 0"
+      }
+    }
+  }
+}

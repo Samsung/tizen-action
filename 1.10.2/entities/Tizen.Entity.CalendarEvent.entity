@@ -1,0 +1,78 @@
+{
+  "typeName": "Tizen.Entity.CalendarEvent",
+  "description": "A calendar event in a calendar book. StartDate is required to create and left out only to name a repeating event as a whole; an event added with no Alarms gets one notification ten minutes before; Profiles picks whose calendar, the active profile when empty",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Title"
+    ],
+    "properties": {
+      "Title": {
+        "type": "string",
+        "description": "Title of the event as shown in the calendar; required when adding"
+      },
+      "StartDate": {
+        "type": "string",
+        "description": "Start of the event, ISO 8601 with offset such as 2026-10-01T09:00:00+09:00, or YYYY-MM-DD when IsAllDay"
+      },
+      "EndDate": {
+        "type": "string",
+        "description": "End of the event in the same format as StartDate; defaults to one hour after StartDate, or the whole day when IsAllDay"
+      },
+      "Note": {
+        "type": "string",
+        "description": "Free-text notes or description attached to the event"
+      },
+      "Location": {
+        "type": "string",
+        "description": "Where the event takes place, as free text such as an address or room"
+      },
+      "IsAllDay": {
+        "type": "boolean",
+        "description": "True for an all-day event, making StartDate and EndDate date-only YYYY-MM-DD"
+      },
+      "TimeZone": {
+        "type": "string",
+        "description": "IANA time zone name the dates are in, such as Asia/Seoul; the device zone when omitted"
+      },
+      "ColorId": {
+        "type": "string",
+        "description": "Opaque per-calendar color id; leave empty and the provider uses the calendar book's color"
+      },
+      "CalendarId": {
+        "type": "string",
+        "description": "Id of the calendar book the event sits in; leave empty for the default calendar"
+      },
+      "CalendarName": {
+        "type": "string",
+        "description": "Display name of the calendar book, output only; resolved from CalendarId and ignored on input"
+      },
+      "Recurrence": {
+        "type": "Tizen.Entity.CalendarRecurrence",
+        "description": "How a calendar event repeats: every Interval periods of Frequency, on ByDay weekdays, ending after Count or at Until; omit CalendarEvent.Recurrence for an event that happens once"
+      },
+      "Alarms": {
+        "type": "array",
+        "description": "An alarm fired MinutesBefore a calendar event starts, delivered by Method",
+        "items": {
+          "type": "Tizen.Entity.CalendarEventAlarm"
+        }
+      },
+      "Attendees": {
+        "type": "array",
+        "description": "Someone attending a calendar event; every field is optional, so an attendee known only by address carries Email alone",
+        "items": {
+          "type": "Tizen.Entity.CalendarAttendee"
+        }
+      },
+      "Profiles": {
+        "type": "array",
+        "description": "A TV user profile, carrying Name (nickname), ImageUrl (profile image), and IsCurrent (whether the TV is using this profile right now)",
+        "items": {
+          "type": "Tizen.Entity.Profile"
+        }
+      }
+    }
+  }
+}

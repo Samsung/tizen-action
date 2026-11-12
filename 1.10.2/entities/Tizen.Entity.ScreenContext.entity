@@ -1,0 +1,21 @@
+{
+  "typeName": "Tizen.Entity.ScreenContext",
+  "description": "Screen Context value returned for the content currently shown by the foreground app; SchemaVersion identifies the schema of the JSON content and ContextJson is that JSON-serialized content, which may describe common display fields such as image, title, subtitle and description plus app/domain-specific context such as a product, movie, person or match",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "SchemaVersion",
+      "ContextJson"
+    ],
+    "properties": {
+      "SchemaVersion": {
+        "type": "string",
+        "description": "Version of the Screen Context JSON schema that ContextJson follows"
+      },
+      "ContextJson": {
+        "type": "string",
+        "description": "Screen Context content serialized as JSON; carries only the fields the provider knows"
+      }
+    }
+  }
+}

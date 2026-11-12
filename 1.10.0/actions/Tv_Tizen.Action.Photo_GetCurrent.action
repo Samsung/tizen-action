@@ -1,0 +1,34 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Photo_GetCurrent",
+  "type": "tidl",
+  "category": "Tizen.Action.Photo",
+  "description": "Get the currently displayed photo; absent when the viewer is not showing one",
+  "allowedBackground": "false",
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "properties": {}
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "return"
+    ],
+    "properties": {
+      "return": {
+        "type": "Tizen.Entity.Status",
+        "description": "Result wrapper returned by every action, carrying Success (whether the action was carried out, not whether it found anything) and Reason (empty on ordinary success; otherwise a prefix plus text - noop/clamped/partial/defaulted when Success is true, rejected/invalid/unsupported/unavailable when it is false)"
+      },
+      "result": {
+        "type": "Tizen.Entity.Photo",
+        "description": "A photo or video item from a photo app or the TV camera: Location, Date, File, Note, ThumbnailUrl, MediaType (photo or video), the People, Activities and Objects found in it, and the Source it came from"
+      }
+    }
+  },
+  "details": {
+    "appid": ""
+  }
+}

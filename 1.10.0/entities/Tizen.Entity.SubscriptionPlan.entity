@@ -1,0 +1,48 @@
+{
+  "typeName": "Tizen.Entity.SubscriptionPlan",
+  "description": "A subscription plan the app sells; Id is the value Subscription.PlanId names. Promotion is the signup discount, paid for its Duration before the list Price",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Name",
+      "BillingPeriod",
+      "Price",
+      "Currency"
+    ],
+    "properties": {
+      "Name": {
+        "type": "string",
+        "description": "Display name of the plan as the app shows it, such as Standard with ads"
+      },
+      "BillingPeriod": {
+        "type": "string",
+        "description": "How often Price is charged, monthly or yearly",
+        "enum": [
+          "monthly",
+          "yearly"
+        ]
+      },
+      "Price": {
+        "type": "number",
+        "description": "List price charged per BillingPeriod, before any Promotion; 0 for a free plan"
+      },
+      "Currency": {
+        "type": "string",
+        "description": "Currency of Price as an ISO 4217 code such as USD or KRW"
+      },
+      "HasAds": {
+        "type": "boolean",
+        "description": "True when the plan is an ad-supported tier that shows advertisements"
+      },
+      "TrialPeriod": {
+        "type": "string",
+        "description": "Free trial length as an ISO 8601 duration such as P7D or P1M; absent when there is no trial"
+      },
+      "Promotion": {
+        "type": "Tizen.Entity.SubscriptionPromotion",
+        "description": "Discount on a list price, in the Currency and BillingPeriod of the Subscription or SubscriptionPlan carrying it; EndsOn applies on a Subscription, Duration on a SubscriptionPlan"
+      }
+    }
+  }
+}

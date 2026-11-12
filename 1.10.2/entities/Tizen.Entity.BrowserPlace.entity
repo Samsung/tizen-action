@@ -1,0 +1,29 @@
+{
+  "typeName": "Tizen.Entity.BrowserPlace",
+  "description": "A place the page is about: Name, Address, Latitude, and Longitude",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Name"
+    ],
+    "properties": {
+      "Name": {
+        "type": "string",
+        "description": "Name of the place the current page is mainly about"
+      },
+      "Address": {
+        "type": "string",
+        "description": "Street address of the place as the page states it"
+      },
+      "Latitude": {
+        "type": "string",
+        "description": "Latitude of the place in decimal degrees, as text; empty when the page gives none"
+      },
+      "Longitude": {
+        "type": "string",
+        "description": "Longitude of the place in decimal degrees, as text; empty when the page gives none"
+      }
+    }
+  }
+}

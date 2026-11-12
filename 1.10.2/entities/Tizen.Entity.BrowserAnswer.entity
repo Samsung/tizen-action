@@ -1,0 +1,21 @@
+{
+  "typeName": "Tizen.Entity.BrowserAnswer",
+  "description": "A free-form answer from the current page: Text and SourceUrl",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Text"
+    ],
+    "properties": {
+      "Text": {
+        "type": "string",
+        "description": "The answer text read from the page in response to the question"
+      },
+      "SourceUrl": {
+        "type": "string",
+        "description": "URL of the page or section the answer text was taken from"
+      }
+    }
+  }
+}

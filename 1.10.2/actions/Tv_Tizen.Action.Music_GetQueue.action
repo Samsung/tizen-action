@@ -1,0 +1,38 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Music_GetQueue",
+  "type": "tidl",
+  "category": "Tizen.Action.Music",
+  "description": "Returns the now-playing Queue with Items in order and Current; absent when nothing is queued. Fails with Reason if no playback session is alive. Saved playlists: Tv_Tizen.Action.Music_SearchPlaylist",
+  "allowedBackground": "true",
+  "requiresRunning": true,
+  "autoDispose": "false",
+  "requiredPrivileges": [
+    "http://tizen.org/privilege/mediacontroller.client"
+  ],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "properties": {}
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "return"
+    ],
+    "properties": {
+      "return": {
+        "type": "Tizen.Entity.Status",
+        "description": "Result wrapper returned by every action, carrying Success (whether the action was carried out, not whether it found anything) and Reason (empty on ordinary success; otherwise a prefix plus text - noop/clamped/partial/defaulted when Success is true, rejected/invalid/unsupported/unavailable when it is false)"
+      },
+      "result": {
+        "type": "Tizen.Entity.Queue",
+        "description": "The single now-playing queue holding Items - tracks, podcast episodes, artist videos - in playback order, with Current naming the one sounding now, absent when nothing sounds"
+      }
+    }
+  },
+  "details": {
+    "appid": ""
+  }
+}

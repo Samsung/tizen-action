@@ -1,0 +1,25 @@
+{
+  "typeName": "Tizen.Entity.Queue",
+  "description": "The single now-playing queue holding Items - tracks, podcast episodes, artist videos - in playback order, with Current naming the one sounding now, absent when nothing sounds",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Items"
+    ],
+    "properties": {
+      "Items": {
+        "type": "array",
+        "description": "Base of every playable item: Title, Formats (audio/video; empty=unknown, video implies audio). A base(Playable) slot may omit TypeName - treat as untyped. Never Station or Artist",
+        "items": {
+          "base": "Tizen.Entity.Playable",
+          "description": "Base of every playable item: Title, Formats (audio/video; empty=unknown, video implies audio). A base(Playable) slot may omit TypeName - treat as untyped. Never Station or Artist"
+        }
+      },
+      "Current": {
+        "base": "Tizen.Entity.Playable",
+        "description": "Base of every playable item: Title, Formats (audio/video; empty=unknown, video implies audio). A base(Playable) slot may omit TypeName - treat as untyped. Never Station or Artist"
+      }
+    }
+  }
+}

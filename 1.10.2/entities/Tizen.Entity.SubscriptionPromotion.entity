@@ -1,0 +1,29 @@
+{
+  "typeName": "Tizen.Entity.SubscriptionPromotion",
+  "description": "Discount on a list price, in the Currency and BillingPeriod of the Subscription or SubscriptionPlan carrying it; EndsOn applies on a Subscription, Duration on a SubscriptionPlan",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Price"
+    ],
+    "properties": {
+      "Price": {
+        "type": "number",
+        "description": "Discounted amount charged per BillingPeriod of the Subscription or SubscriptionPlan carrying it"
+      },
+      "EndsOn": {
+        "type": "string",
+        "description": "On a Subscription, the ISO 8601 date the discount ends and the list Price resumes"
+      },
+      "Duration": {
+        "type": "string",
+        "description": "On a SubscriptionPlan, how long the discount lasts after signup, as an ISO 8601 duration such as P3M"
+      },
+      "Description": {
+        "type": "string",
+        "description": "Offer wording as the app shows it, for terms such as student or bundle conditions"
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "typeName": "Tizen.Entity.Episode",
+  "description": "One installment of a show: parent Series, SeasonNumber, EpisodeNumber. Returned when a request names a specific episode. Get a show's full list via Tv_Tizen.Action.Video_GetSeriesEpisodes",
+  "base": "Tizen.Entity.Content",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Series",
+      "SeasonNumber",
+      "EpisodeNumber"
+    ],
+    "properties": {
+      "Series": {
+        "type": "Tizen.Entity.Series",
+        "description": "A whole show; counts only - episodes via Tv_Tizen.Action.Video_GetSeriesEpisodes. Director is the show's lead director, not an Episode's own Content.Director. Play via Tv_Tizen.Action.Video_Play"
+      },
+      "SeasonNumber": {
+        "type": "integer",
+        "description": "Number of the season the episode belongs to, starting at 1"
+      },
+      "EpisodeNumber": {
+        "type": "integer",
+        "description": "Position of the episode within its season, starting at 1"
+      }
+    }
+  }
+}

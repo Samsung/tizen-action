@@ -1,0 +1,35 @@
+{
+  "typeName": "Tizen.Entity.ArtistVideo",
+  "description": "An artist video. Artist is whose video it is; Cast (inherited from Content) is who appears on screen. Cast/Director/Writer are filled only for ArtistVideoType official_music_video",
+  "base": "Tizen.Entity.Content",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "ArtistVideoType"
+    ],
+    "properties": {
+      "ArtistVideoType": {
+        "type": "string",
+        "description": "Form of the video: official_music_video, performance, dance_practice or fancam",
+        "enum": [
+          "official_music_video",
+          "performance",
+          "dance_practice",
+          "fancam"
+        ]
+      },
+      "Artist": {
+        "type": "Tizen.Entity.Artist",
+        "description": "A music artist with Name and Genre. Returned by artist search; an artist cannot be handed to Tv_Tizen.Action.Music_Play - search for tracks by that artist and play those instead"
+      },
+      "Album": {
+        "type": "Tizen.Entity.Album",
+        "description": "A music album with Title (from Playable), Artist, ReleaseDate, TrackCount, and CoverUrl. Pass one to Tv_Tizen.Action.Music_Play; find one with Tv_Tizen.Action.Music_SearchAlbum"
+      },
+      "Track": {
+        "type": "Tizen.Entity.Track",
+        "description": "A music track with Title (from Playable), Artist, Album, Duration, Genre, TrackNumber, File (empty when streamed), Affinity (liked/disliked/unset), and CoverUrl. See PlaybackState for position"
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "typeName": "Tizen.Entity.StressData",
+  "description": "Stress for one Day: the numeric Score; Level is absent from the provider and the agent derives it from Score",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Day",
+      "Score"
+    ],
+    "properties": {
+      "Day": {
+        "type": "string",
+        "description": "Day the stress reading covers, as a date string"
+      },
+      "Score": {
+        "type": "integer",
+        "description": "Stress score as an integer from 0 to 100 on the app's scale"
+      },
+      "Level": {
+        "type": "string",
+        "description": "Absent from the provider; derive it from Score: low under 30, medium 30 to 69, high 70 and above",
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Music_AddToQueue",
+  "type": "tidl",
+  "category": "Tizen.Action.Music",
+  "description": "Appends one Playable - Track, Album, Playlist, PodcastEpisode or ArtistVideo - to the Queue; rejects PodcastShow. Fails with Reason if no playback session. Permanent: Tv_Tizen.Action.Music_AddToPlaylist",
+  "allowedBackground": "true",
+  "requiresRunning": true,
+  "autoDispose": "false",
+  "requiredPrivileges": [
+    "http://tizen.org/privilege/mediacontroller.client"
+  ],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "required": [
+      "item"
+    ],
+    "properties": {
+      "item": {
+        "base": "Tizen.Entity.Playable",
+        "description": "Base of every playable item: Title, Formats (audio/video; empty=unknown, video implies audio). A base(Playable) slot may omit TypeName - treat as untyped. Never Station or Artist"
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": ""
+  }
+}

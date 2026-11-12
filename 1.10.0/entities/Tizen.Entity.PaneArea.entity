@@ -1,0 +1,32 @@
+{
+  "typeName": "Tizen.Entity.PaneArea",
+  "description": "The rectangle one pane covers: X, Y (top-left corner), Width, Height, in percent of the panel so layouts read the same at 1080p and 4K. Output only - callers never place a pane by coordinate",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "X",
+      "Y",
+      "Width",
+      "Height"
+    ],
+    "properties": {
+      "X": {
+        "type": "integer",
+        "description": "Horizontal position of the pane's top-left corner, in percent of the panel width"
+      },
+      "Y": {
+        "type": "integer",
+        "description": "Vertical position of the pane's top-left corner, in percent of the panel height"
+      },
+      "Width": {
+        "type": "integer",
+        "description": "Width of the pane in percent of the panel width"
+      },
+      "Height": {
+        "type": "integer",
+        "description": "Height of the pane in percent of the panel height"
+      }
+    }
+  }
+}

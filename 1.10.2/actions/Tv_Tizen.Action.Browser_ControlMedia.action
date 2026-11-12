@@ -1,0 +1,24 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Browser_ControlMedia",
+  "type": "tidl",
+  "category": "Tizen.Action.Browser",
+  "description": "Control the media element in the browser's current page: play, pause, restart, seek, skips, previous/next track, skip ad. Media in a TV app: Tv_Tizen.Action.Video_Control",
+  "allowedBackground": "false",
+  "requiresRunning": true,
+  "autoDispose": "false",
+  "requiredPrivileges": [
+    "http://tizen.org/privilege/mediacontroller.client"
+  ],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.BrowserMediaCommand"
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": "org.tizen.next-browser"
+  }
+}

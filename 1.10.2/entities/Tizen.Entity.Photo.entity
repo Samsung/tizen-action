@@ -1,0 +1,72 @@
+{
+  "typeName": "Tizen.Entity.Photo",
+  "description": "A photo or video item from a photo app or the TV camera: Location, Date, File, Note, ThumbnailUrl, MediaType (photo or video), the People, Activities and Objects found in it, and the Source it came from",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "Location": {
+        "type": "string",
+        "description": "Place the photo was taken, as a place name or address"
+      },
+      "Date": {
+        "type": "string",
+        "description": "When the photo was taken, as an ISO 8601 datetime such as 2025-06-16T14:30:00"
+      },
+      "File": {
+        "type": "Tizen.Entity.File",
+        "description": "A file on a storage medium, with Path, StorageType (internal/usb/network), Size and ModifiedDate. Carried by Track.File and Content.File, and played on its own by the PlayFile actions"
+      },
+      "Note": {
+        "type": "string",
+        "description": "User-written note or caption attached to the photo"
+      },
+      "ThumbnailUrl": {
+        "type": "string",
+        "description": "Small preview image of the item, a URL or an on-device file path; used only for display"
+      },
+      "MediaType": {
+        "type": "string",
+        "description": "Whether the item is a still photo or a video clip",
+        "enum": [
+          "photo",
+          "video"
+        ]
+      },
+      "People": {
+        "type": "array",
+        "description": "Names of people who appear in the photo; empty when the app has no person metadata",
+        "items": {
+          "type": "string"
+        }
+      },
+      "Activities": {
+        "type": "array",
+        "description": "Activities shown in the photo, such as hiking; empty when the app has no activity metadata",
+        "items": {
+          "type": "string"
+        }
+      },
+      "Objects": {
+        "type": "array",
+        "description": "Objects detected in the photo, such as dog or car; empty when the app has no object metadata",
+        "items": {
+          "type": "string"
+        }
+      },
+      "Source": {
+        "type": "string",
+        "description": "Photo source: gallery, google_photos, quick_share, art_mode, generative_photo or usb; absent when unknown",
+        "enum": [
+          "gallery",
+          "google_photos",
+          "quick_share",
+          "art_mode",
+          "generative_photo",
+          "usb"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Browser_ToCalendar",
+  "type": "tidl",
+  "category": "Tizen.Action.Browser",
+  "description": "Extract a calendar event from the page; absent when the page describes none",
+  "allowedBackground": "false",
+  "requiresRunning": true,
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.WebPageInfo"
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "return"
+    ],
+    "properties": {
+      "return": {
+        "type": "Tizen.Entity.Status",
+        "description": "Result wrapper returned by every action, carrying Success (whether the action was carried out, not whether it found anything) and Reason (empty on ordinary success; otherwise a prefix plus text - noop/clamped/partial/defaulted when Success is true, rejected/invalid/unsupported/unavailable when it is false)"
+      },
+      "result": {
+        "type": "Tizen.Entity.CalendarEvent",
+        "description": "A calendar event in a calendar book. StartDate is required to create and left out only to name a repeating event as a whole; an event added with no Alarms gets one notification ten minutes before; Profiles picks whose calendar, the active profile when empty"
+      }
+    }
+  },
+  "details": {
+    "appid": "org.tizen.next-browser"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Video_PlayMultiView",
+  "type": "tidl",
+  "category": "Tizen.Action.Video",
+  "description": "Applies a ContentPaneLayout inside one video app - each Pane starts playing, the rest are dropped. Splitting the TV across apps is Tv_Tizen.Action.MultiView_LaunchSplit",
+  "allowedBackground": "false",
+  "autoDispose": "false",
+  "requiredPrivileges": [
+    "http://tizen.org/privilege/mediacontroller.client"
+  ],
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "Tizen.Entity.ContentPaneLayout"
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": ""
+  }
+}

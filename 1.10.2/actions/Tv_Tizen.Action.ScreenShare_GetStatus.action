@@ -1,0 +1,36 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.ScreenShare_GetStatus",
+  "type": "tidl",
+  "category": "Tizen.Action.ScreenShare",
+  "description": "Returns the connected CastSource with its Protocol, Mode, SenderName and SupportedOperations; absent when no sender is connected. A snapshot that can change mid-session, so call it before every Control",
+  "allowedBackground": "false",
+  "requiresRunning": true,
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "properties": {}
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "return"
+    ],
+    "properties": {
+      "return": {
+        "type": "Tizen.Entity.Status",
+        "description": "Result wrapper returned by every action, carrying Success (whether the action was carried out, not whether it found anything) and Reason (empty on ordinary success; otherwise a prefix plus text - noop/clamped/partial/defaulted when Success is true, rejected/invalid/unsupported/unavailable when it is false)"
+      },
+      "result": {
+        "type": "Tizen.Entity.CastSource",
+        "description": "The sender connected to the TV: Protocol (airplay/googlecast/miracast/dex/remote_pc), Mode (mirroring/media_cast, absent while the sender is connected but idle), SenderName, and SupportedOperations, the operations accepted right now"
+      }
+    }
+  },
+  "details": {
+    "appid": "com.samsung.tv.googlecast-service"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "typeName": "Tizen.Entity",
+  "description": "Root base for every Tizen entity, carrying Id (a stable identifier for the item) and Extra (an open key-value bag for app-specific data that the schema does not model)",
+  "dataSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "Id": {
+        "type": "string",
+        "description": "Stable identifier the provider gave this item, sent back to name it again in a later action"
+      },
+      "Extra": {
+        "type": "string",
+        "description": "Open key-value bag for app-specific data the schema does not model; leave empty if nothing to add"
+      }
+    }
+  }
+}

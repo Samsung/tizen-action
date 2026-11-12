@@ -1,0 +1,37 @@
+{
+  "typeName": "Tizen.Entity.NavigationCommand",
+  "description": "Page navigation request: Operation (back/forward/refresh/scroll); Direction (up/down/left/right) and Amount are only used when Operation=scroll (Amount omitted means one step)",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Operation"
+    ],
+    "properties": {
+      "Operation": {
+        "type": "string",
+        "description": "Move to make on the page: back, forward, refresh or scroll",
+        "enum": [
+          "back",
+          "forward",
+          "refresh",
+          "scroll"
+        ]
+      },
+      "Direction": {
+        "type": "string",
+        "description": "Scroll direction up, down, left or right; read only when Operation is scroll",
+        "enum": [
+          "up",
+          "down",
+          "left",
+          "right"
+        ]
+      },
+      "Amount": {
+        "type": "integer",
+        "description": "Number of scroll steps; read only when Operation is scroll, one step when omitted"
+      }
+    }
+  }
+}

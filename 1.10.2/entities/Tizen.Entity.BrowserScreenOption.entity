@@ -1,0 +1,49 @@
+{
+  "typeName": "Tizen.Entity.BrowserScreenOption",
+  "description": "Screen option: Name (zoom/fullscreen/screenfit/screenmode); Enabled for fullscreen and screenfit, ZoomMode (in/out/set) with ZoomAmount(%) for zoom, Layout (default/theater/full) for screenmode",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Name"
+    ],
+    "properties": {
+      "Name": {
+        "type": "string",
+        "description": "Which option to set: zoom, fullscreen, screenfit or screenmode; only the matching fields are read",
+        "enum": [
+          "zoom",
+          "fullscreen",
+          "screenfit",
+          "screenmode"
+        ]
+      },
+      "Enabled": {
+        "type": "boolean",
+        "description": "On or off state, read when Name is fullscreen or screenfit"
+      },
+      "ZoomMode": {
+        "type": "string",
+        "description": "in to zoom in one step, out to zoom out, set to apply ZoomAmount; read when Name is zoom",
+        "enum": [
+          "in",
+          "out",
+          "set"
+        ]
+      },
+      "ZoomAmount": {
+        "type": "integer",
+        "description": "Zoom level in percent applied when ZoomMode is set, such as 150"
+      },
+      "Layout": {
+        "type": "string",
+        "description": "Screen layout default, theater or full; read when Name is screenmode",
+        "enum": [
+          "default",
+          "theater",
+          "full"
+        ]
+      }
+    }
+  }
+}

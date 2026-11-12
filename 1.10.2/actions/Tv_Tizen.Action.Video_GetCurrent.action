@@ -1,0 +1,46 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.Video_GetCurrent",
+  "type": "tidl",
+  "category": "Tizen.Action.Video",
+  "description": "Returns Content playing, PlaybackState; absent when idle. layout: multiview-only, Pane Content/Area/flags/State. Change: Tv_Tizen.Action.Video_PlayMultiView; music: Tv_Tizen.Action.Music_GetCurrent",
+  "allowedBackground": "false",
+  "requiresRunning": true,
+  "autoDispose": "false",
+  "requiredPrivileges": [
+    "http://tizen.org/privilege/mediacontroller.client"
+  ],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "partner",
+  "inputSchema": {
+    "type": "object",
+    "properties": {}
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "return"
+    ],
+    "properties": {
+      "return": {
+        "type": "Tizen.Entity.Status",
+        "description": "Result wrapper returned by every action, carrying Success (whether the action was carried out, not whether it found anything) and Reason (empty on ordinary success; otherwise a prefix plus text - noop/clamped/partial/defaulted when Success is true, rejected/invalid/unsupported/unavailable when it is false)"
+      },
+      "item": {
+        "base": "Tizen.Entity.Content",
+        "description": "One video item - movie, episode, clip, artist_video or sports_event, from a local file, vod or live stream; movie has no subtype, the others map to Episode/Clip/ArtistVideo/SportsEvent"
+      },
+      "state": {
+        "type": "Tizen.Entity.PlaybackState",
+        "description": "Read-only playback snapshot that never names the item - the sibling item, or the pane's Content, says what plays. Format is how it renders now, not its type. Change via PlaybackSetting"
+      },
+      "layout": {
+        "type": "Tizen.Entity.ContentPaneLayout",
+        "description": "How one video app splits its own screen - distinct from the device-level MultiView category. One Pane=full-screen. Same Content on every pane=multi-angle; different Contents=multi-stream"
+      }
+    }
+  },
+  "details": {
+    "appid": ""
+  }
+}
