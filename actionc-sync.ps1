@@ -163,6 +163,14 @@ if (-not $Chosen) {
 }
 if ($Chosen -ne $Target) { Log "No exact match for $Target; using $Chosen (same $TargetMM.x line)." }
 
+# Byte-for-byte file comparison through .NET. Get-FileHash is avoided on
+# purpose: it needs PowerShell 4+, and it is also missing when powershell.exe
+# is started from PowerShell 7 (inherited PSModulePath breaks the autoload of
+# Microsoft.PowerShell.Utility). -ceq because Base64 is case-sensitive.
+function Same-Content($a, $b) {
+  [Convert]::ToBase64String([IO.File]::ReadAllBytes($a)) -ceq [Convert]::ToBase64String([IO.File]::ReadAllBytes($b))
+}
+
 # --- Install into the data directory --------------------------------------
 $Src = Join-Path $CacheDir $Chosen
 $VersionFile = Join-Path $DataDir 'DATA_VERSION'
@@ -174,7 +182,7 @@ if ((Test-Path $VersionFile) -and ((Get-Content $VersionFile -Raw).Trim() -eq $C
   if ($srcFiles.Count -gt 0 -and $srcFiles.Count -eq $dstFiles.Count -and -not (Compare-Object $srcFiles $dstFiles)) {
     $UpToDate = $true
     foreach ($rel in $srcFiles) {
-      if ((Get-FileHash (Join-Path $Src $rel)).Hash -ne (Get-FileHash (Join-Path $DataDir $rel)).Hash) { $UpToDate = $false; break }
+      if (-not (Same-Content (Join-Path $Src $rel) (Join-Path $DataDir $rel))) { $UpToDate = $false; break }
     }
   }
 }
