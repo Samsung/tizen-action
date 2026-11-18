@@ -5,4 +5,4 @@
 # lines starting with '#' and blank lines are ignored.
 #
 
-tizen-action >= 1.10.3
+tizen-action >= 1.11.0
