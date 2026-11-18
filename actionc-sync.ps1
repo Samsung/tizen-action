@@ -1,7 +1,8 @@
 <#
 .SYNOPSIS
 Sync the Tizen Action Compiler schema data (actions\, entities\, action.seq)
-with the tizen-action version installed on the attached device.
+with the data repository: the latest published tizen-action version, or the
+one that was pinned.
 
 .DESCRIPTION
 The compiler binaries (actionc, action2tidl, tidlc) are reused as installed;
@@ -10,13 +11,13 @@ data-repo.conf, and installed into %USERPROFILE%\.action-tools\data where
 actionc reads it. Windows counterpart of actionc-sync.sh; run it through
 actionc-sync.bat.
 
-Version matching: the directory named exactly like the device version is used
-when it exists; otherwise the highest version with the same <major>.<minor>
-that is not newer than the device.
+Version matching for a named version: the directory named exactly like it is
+used when it exists; otherwise the highest version with the same
+<major>.<minor> that is not newer than it.
 
 .PARAMETER Target
 Sync to this tizen-action version instead of the one in data-repo.conf
-(DATA_VERSION) or on the device.
+(DATA_VERSION) or the latest.
 .PARAMETER List
 List the versions available in the data repository.
 .PARAMETER DataDir
@@ -26,10 +27,10 @@ Do not contact the repository; reuse the last fetch.
 .PARAMETER Quiet
 Only print warnings and errors.
 
-Environment: SDB_SERIAL, ACTIONC_DATA_REPO, ACTIONC_DATA_REPO_BRANCH,
-ACTIONC_DATA_VERSION (see data-repo.conf). The version to sync to is taken from,
-in order: -Target, ACTIONC_DATA_VERSION, DATA_VERSION in data-repo.conf, and
-finally the attached device over sdb.
+Environment: ACTIONC_DATA_REPO, ACTIONC_DATA_REPO_BRANCH, ACTIONC_DATA_VERSION
+(see data-repo.conf). The version to sync to is taken from, in order: -Target,
+ACTIONC_DATA_VERSION, DATA_VERSION in data-repo.conf, and finally the latest
+version published in the data repository (DATA_VERSION empty or 'auto').
 #>
 [CmdletBinding()]
 param(
@@ -124,26 +125,15 @@ if ($List) {
   exit 0
 }
 
-# --- Target version (option, then conf/env, then the device over sdb) -----
+# --- Target version (option, then conf/env, then the latest published) ----
 if (-not $Target -and $DataVersion) {
   $Target = $DataVersion
   Log "Pinned tizen-action version: $Target ($DataVersionSource)"
 }
 if (-not $Target) {
-  if (-not (Get-Command sdb -ErrorAction SilentlyContinue)) { Die 'sdb not found; pass -Target VERSION to choose the tizen-action version' }
-  $sdbArgs = @()
-  if ($env:SDB_SERIAL) {
-    $sdbArgs = @('-s', $env:SDB_SERIAL)
-  } else {
-    $count = @(sdb devices 2>$null | Select-Object -Skip 1 | Where-Object { $_ -match '\sdevice\s' }).Count
-    if ($count -eq 0) { Die 'no device connected; pass -Target VERSION to choose the tizen-action version' }
-    if ($count -gt 1) { Die "$count devices connected; set SDB_SERIAL or pass -Target VERSION" }
-  }
-  $out = (& sdb @sdbArgs shell "rpm -q --qf '%{VERSION}' tizen-action" 2>$null) -join "`n"
-  $Target = ($out -split "`r?`n" | Select-Object -First 1).Trim()
-  # rpm reports a missing package as prose on stdout, so require a leading digit.
-  if ($Target -notmatch '^[0-9]') { Die 'could not read the tizen-action version from the device (is it reachable and is tizen-action installed?)' }
-  Log "Device tizen-action version: $Target"
+  if ($Available.Count -eq 0) { Die "no schema data published in $DataRepo ($DataRepoBranch)" }
+  $Target = $Available[-1]
+  Log "Latest tizen-action version: $Target"
 }
 if ($Target -notmatch '^[0-9]+(\.[0-9]+)+$') { Die "invalid version '$Target'" }
 

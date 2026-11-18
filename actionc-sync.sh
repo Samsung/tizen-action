@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 #
 # Sync the Tizen Action Compiler schema data (actions/, entities/, action.seq)
-# with the tizen-action version installed on the attached device.
+# with the data repository: the latest published tizen-action version, or the
+# one that was pinned.
 #
 # The compiler binaries (actionc, action2tidl, tidlc) are reused as installed;
 # only the schema data is fetched, from the git repository named in
@@ -9,7 +10,7 @@
 #
 # Usage: actionc-sync [options]
 #   -t, --target VERSION   sync to this tizen-action version instead of the one
-#                          in data-repo.conf (DATA_VERSION) or on the device
+#                          in data-repo.conf (DATA_VERSION) or the latest
 #   -l, --list             list the versions available in the data repository
 #   -d, --data-dir DIR     install the schemas into DIR instead of
 #                          ~/.action-tools/data
@@ -18,17 +19,17 @@
 #   -h, --help             show this help
 #
 # Environment:
-#   SDB_SERIAL                device to query when several are attached
 #   ACTIONC_DATA_REPO         overrides DATA_REPO in data-repo.conf
 #   ACTIONC_DATA_REPO_BRANCH  overrides DATA_REPO_BRANCH in data-repo.conf
 #   ACTIONC_DATA_VERSION      overrides DATA_VERSION in data-repo.conf
 #
 # The version to sync to is taken from, in order: --target, ACTIONC_DATA_VERSION,
-# DATA_VERSION in data-repo.conf, and finally the attached device over sdb.
+# DATA_VERSION in data-repo.conf, and finally the latest version published in
+# the data repository (DATA_VERSION empty or 'auto').
 #
-# Version matching: the directory named exactly like the device version is
+# Version matching for a named version: the directory named exactly like it is
 # used when it exists; otherwise the highest version with the same
-# <major>.<minor> that is not newer than the device.
+# <major>.<minor> that is not newer than it.
 
 set -euo pipefail
 
@@ -151,29 +152,15 @@ if [[ "${LIST_ONLY}" -eq 1 ]]; then
   exit 0
 fi
 
-# --- Target version (option, then conf/env, then the device over sdb) -----
+# --- Target version (option, then conf/env, then the latest published) ----
 if [[ -z "${TARGET}" && -n "${DATA_VERSION}" ]]; then
   TARGET="${DATA_VERSION}"
   log "Pinned tizen-action version: ${TARGET} (${DATA_VERSION_SOURCE})"
 fi
 if [[ -z "${TARGET}" ]]; then
-  command -v sdb >/dev/null 2>&1 || die "sdb not found; pass --target VERSION to choose the tizen-action version"
-  SDB_CMD=(sdb)
-  if [[ -n "${SDB_SERIAL:-}" ]]; then
-    SDB_CMD=(sdb -s "${SDB_SERIAL}")
-  else
-    DEVICE_COUNT=$(sdb devices 2>/dev/null | tail -n +2 | grep -cw "device" || true)
-    if [[ "${DEVICE_COUNT}" -eq 0 ]]; then
-      die "no device connected; pass --target VERSION to choose the tizen-action version"
-    elif [[ "${DEVICE_COUNT}" -gt 1 ]]; then
-      die "${DEVICE_COUNT} devices connected; set SDB_SERIAL or pass --target VERSION"
-    fi
-  fi
-  # rpm reports a missing package as prose on stdout, so require a leading digit.
-  TARGET=$("${SDB_CMD[@]}" shell "rpm -q --qf '%{VERSION}' tizen-action" </dev/null 2>/dev/null |
-           tr -d '\r' | head -1) || true
-  [[ "${TARGET}" =~ ^[0-9] ]] || die "could not read the tizen-action version from the device (is it reachable and is tizen-action installed?)"
-  log "Device tizen-action version: ${TARGET}"
+  TARGET=$(available_versions | tail -1)
+  [[ -n "${TARGET}" ]] || die "no schema data published in ${DATA_REPO} (${DATA_REPO_BRANCH})"
+  log "Latest tizen-action version: ${TARGET}"
 fi
 [[ "${TARGET}" =~ ^[0-9]+(\.[0-9]+)+$ ]] || die "invalid version '${TARGET}'"
 

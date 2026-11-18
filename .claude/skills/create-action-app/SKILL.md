@@ -20,7 +20,7 @@ Reference implementations to mirror (siblings of this repo, if present):
 ```bash
 command -v actionc || ls ~/.action-tools/actionc     # else run ./install.sh in this repo
 actionc -v
-actionc-sync        # schemas matching the attached device's tizen-action (or --target X.Y.Z)
+actionc-sync        # latest published schemas (or --target X.Y.Z to match a device)
 ```
 
 `actionc` resolves `ACTIONC_DATA_DIR` (default `~/.action-tools/data`),

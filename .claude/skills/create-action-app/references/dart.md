@@ -174,9 +174,9 @@ fi
 echo "actionc: ${ACTIONC_BIN}"
 mkdir -p "${GEN_DIR}"
 
-# Match the schemas to the attached device's tizen-action before generating; the
-# compiler binaries stay as installed. Best effort: without a device or network the
-# installed data is used as is.
+# Update the schemas to the latest published tizen-action (or the pinned
+# DATA_VERSION) before generating; the compiler binaries stay as installed.
+# Best effort: without network the installed data is used as is.
 ACTIONC_SYNC_BIN="$(command -v actionc-sync 2>/dev/null || true)"
 if [ -z "${ACTIONC_SYNC_BIN}" ] && [ -x "${HOME}/.action-tools/actionc-sync" ]; then
   ACTIONC_SYNC_BIN="${HOME}/.action-tools/actionc-sync"

@@ -153,7 +153,7 @@ echo -e "${BLUE}Schema data:${NC}"
 if [[ -f "${DATA_DIR}/DATA_VERSION" ]]; then
   echo -e "  ${GREEN}✓${NC} tizen-action $(cat "${DATA_DIR}/DATA_VERSION") (synced from $(cut -d' ' -f1 "${DATA_DIR}/DATA_SOURCE" 2>/dev/null || echo 'the data repository'))"
 elif [[ -d "${DATA_DIR}/actions" ]]; then
-  echo -e "  ${YELLOW}•${NC} unknown origin, no DATA_VERSION (run 'actionc-sync' to match the device)"
+  echo -e "  ${YELLOW}•${NC} unknown origin, no DATA_VERSION (run 'actionc-sync' to fetch the latest)"
 else
   echo -e "  ${RED}✗${NC} no schema data at ${DATA_DIR} (run 'actionc-sync')"
 fi

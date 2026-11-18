@@ -10,7 +10,7 @@ A self-contained, multi-platform compiler repository designed to store the Tizen
 
 The binaries live under `bin/linux/`, `bin/macos/`, and `bin/windows/`. The macOS binaries are x86_64 Mach-O executables built for macOS 26 or later and run on Apple silicon through Rosetta 2.
 
-The action/entity schemas are not part of this repository: the installers fetch the set matching the attached device's `tizen-action` version from the data repository named in `data-repo.conf` (see [Schema data repository](#schema-data-repository)), so the installed binaries are reused across device updates.
+The action/entity schemas are not part of this repository: the installers fetch the latest published set from the data repository named in `data-repo.conf` (see [Schema data repository](#schema-data-repository)), so the installed binaries are reused across schema updates.
 
 ## Environment Specifications
 
@@ -26,11 +26,11 @@ The `actionc` orchestrator utilizes and resolves several official environment va
 
 Stubs must be generated from the same action/entity schemas the device runs, and the device's `tizen-action` moves independently of this compiler. Rather than shipping a schema snapshot with every compiler release, the installers fetch the data as their last step through the bundled `actionc-sync` helper, which:
 
-1. reads the `tizen-action` version off the attached device (`sdb shell rpm -q tizen-action`; `SDB_SERIAL` picks one of several devices),
-2. fetches the data repository with `git` (a shallow clone kept under `~/.action-tools/data-repo`),
-3. picks the matching version directory and installs it into `~/.action-tools/data`, where `actionc` reads it.
+1. fetches the data repository with `git` (a shallow clone kept under `~/.action-tools/data-repo`),
+2. picks the latest `tizen-action` version published there, unless a version is pinned (`DATA_VERSION`, `ACTIONC_DATA_VERSION` or `actionc-sync --target`),
+3. installs that version directory into `~/.action-tools/data`, where `actionc` reads it.
 
-So a plain `./install.sh` (or `./install-macos.sh`, `install.bat`) leaves the data matching the attached device. Without a device, network, or a matching version the installers warn and finish anyway; `actionc` then has no schemas until an install with a device attached succeeds (schemas from an earlier install, if any, are left in place). Re-run the installer after switching devices or after a device update; the fetch is a no-op when the installed data already matches. `git` must be on `PATH` on every platform.
+So a plain `./install.sh` (or `./install-macos.sh`, `install.bat`) leaves the latest published data installed; no device is needed. Without network access the installers warn and finish anyway; `actionc` then has no schemas until `actionc-sync` succeeds (schemas from an earlier install, if any, are left in place). Re-run `actionc-sync` to pick up a newer data release; the fetch is a no-op when the installed data already matches. `git` must be on `PATH` on every platform.
 
 The data repository holds one directory per `tizen-action` version, each with the layout `actionc` expects in its data directory:
 
@@ -40,7 +40,7 @@ The data repository holds one directory per `tizen-action` version, each with th
 <version>/action.seq
 ```
 
-The directory named exactly like the device version is used when it exists; otherwise the highest version with the same `<major>.<minor>` that is not newer than the device, since `REQUIREMENTS` pins compatibility to a minor line. A device with no matching line is an error listing what is available.
+When a version is pinned, the directory named exactly like it is used when it exists; otherwise the highest version with the same `<major>.<minor>` that is not newer than it, since `REQUIREMENTS` pins compatibility to a minor line. A pinned version with no matching line is an error listing what is available.
 
 Which repository and which version are used comes from `data-repo.conf`, installed next to the binaries:
 
@@ -50,7 +50,7 @@ DATA_REPO_BRANCH=data
 DATA_VERSION=
 ```
 
-The schemas live on the `data` branch of the same repository that holds this toolchain on `main`. Keeping them on their own branch lets `actionc-sync` shallow-clone the schemas alone, without the compiler binaries, and lets the two move on their own release cadences. `DATA_VERSION` left empty (or `auto`) means "whatever the attached device runs"; set it to pin a `tizen-action` version, for example on a build machine without a device. The version actually used is resolved in this order: `ACTIONC_DATA_VERSION`, `DATA_VERSION` in the file, then the device. `ACTIONC_DATA_REPO`, `ACTIONC_DATA_REPO_BRANCH` and `ACTIONC_DATA_VERSION` in the environment override the file for one user or one shell. The installed data records where it came from in `data/DATA_VERSION` and `data/DATA_SOURCE`, which `version.sh` reports.
+The schemas live on the `data` branch of the same repository that holds this toolchain on `main`. Keeping them on their own branch lets `actionc-sync` shallow-clone the schemas alone, without the compiler binaries, and lets the two move on their own release cadences. `DATA_VERSION` left empty (or `auto`) means "the latest version published in the repository"; set it to pin a `tizen-action` version, for example for a device that runs an older one. The version actually used is resolved in this order: `actionc-sync --target`, `ACTIONC_DATA_VERSION`, `DATA_VERSION` in the file, then the latest published. `ACTIONC_DATA_REPO`, `ACTIONC_DATA_REPO_BRANCH` and `ACTIONC_DATA_VERSION` in the environment override the file for one user or one shell. The installed data records where it came from in `data/DATA_VERSION` and `data/DATA_SOURCE`, which `version.sh` reports.
 
 ## Version
 

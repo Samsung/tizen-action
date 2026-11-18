@@ -242,9 +242,9 @@ ACTIONC_BIN="$(find_actionc)" || {
 echo "actionc: ${ACTIONC_BIN}"
 mkdir -p "${JS_DIR}"
 
-# Match the schemas to the attached device's tizen-action before generating; the
-# compiler binaries stay as installed. Best effort: without a device or network the
-# installed data is used as is.
+# Update the schemas to the latest published tizen-action (or the pinned
+# DATA_VERSION) before generating; the compiler binaries stay as installed.
+# Best effort: without network the installed data is used as is.
 find_actionc_sync() {
   if command -v actionc-sync >/dev/null 2>&1; then command -v actionc-sync; return; fi
   if [[ -x "${HOME}/.action-tools/actionc-sync" ]]; then echo "${HOME}/.action-tools/actionc-sync"; return; fi

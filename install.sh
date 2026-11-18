@@ -75,17 +75,17 @@ else
 fi
 
 # --- Fetch the schema data ------------------------------------------------
-# The schemas are not part of the compiler; actionc-sync fetches the set
-# matching the attached device's tizen-action from the data repository. Best
-# effort: without a device, network, or matching version the install still
+# The schemas are not part of the compiler; actionc-sync fetches the latest
+# published set (or the pinned DATA_VERSION) from the data repository. Best
+# effort: without network access the install still
 # succeeds, but actionc has nothing to compile until actionc-sync has run
 # (data from an earlier install, if any, is left in place).
-echo "[4/4] Fetching schema data for the attached device's tizen-action..."
+echo "[4/4] Fetching the latest schema data..."
 if "${INSTALL_DIR}/actionc-sync"; then
   :
 else
-  echo "warning: schema data not fetched; actionc needs it. Run 'actionc-sync' once a device is attached" >&2
-  echo "         (or set DATA_VERSION in ${INSTALL_DIR}/data-repo.conf to build without a device)." >&2
+  echo "warning: schema data not fetched; actionc needs it. Run 'actionc-sync' once the data" >&2
+  echo "         repository is reachable." >&2
 fi
 
 echo ""
@@ -97,6 +97,6 @@ echo ""
 echo " To check the installed compiler version later:"
 echo "   cat ~/.action-tools/VERSION"
 echo ""
-echo " Schema data follows the attached device's tizen-action; re-run"
-echo " 'actionc-sync' after switching devices or after a device update."
+echo " Schema data is the latest published tizen-action version; re-run"
+echo " 'actionc-sync' to update it, or set DATA_VERSION in data-repo.conf to pin one."
 echo "================================================================="
