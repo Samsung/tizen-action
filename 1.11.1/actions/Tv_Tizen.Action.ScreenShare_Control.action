@@ -1,0 +1,30 @@
+{
+  "version": "v2",
+  "name": "Tv_Tizen.Action.ScreenShare_Control",
+  "type": "tidl",
+  "category": "Tizen.Action.ScreenShare",
+  "description": "Sends a PlaybackCommand to media cast from a phone or PC; accepts only the SupportedOperations from the latest Tv_Tizen.Action.ScreenShare_GetStatus, never stop (use Tv_Tizen.Action.ScreenShare_Stop). TV app playback: Tv_Tizen.Action.Video_Control",
+  "keyword": [
+    "screenshare",
+    "screen",
+    "share",
+    "control"
+  ],
+  "allowedBackground": "false",
+  "requiresRunning": true,
+  "autoDispose": "false",
+  "requiredPrivileges": [
+    "http://tizen.org/privilege/mediacontroller.client"
+  ],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "public",
+  "inputSchema": {
+    "type": "Tizen.Entity.PlaybackCommand"
+  },
+  "outputSchema": {
+    "type": "Tizen.Entity.Status"
+  },
+  "details": {
+    "appid": "com.samsung.tv.googlecast-service"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "version": "v2",
+  "name": "Common_Tizen.Action.View_GetScreenSummary",
+  "type": "tidl",
+  "category": "Tizen.Action.View",
+  "agentVisible": false,
+  "description": "Get a short summary of the app's current screen",
+  "keyword": [
+    "screen",
+    "summary",
+    "current screen",
+    "what is on screen"
+  ],
+  "allowedBackground": "false",
+  "requiresRunning": true,
+  "autoDispose": "false",
+  "requiredPrivileges": [],
+  "requiresConfirmation": false,
+  "providerPrivilegeLevel": "public",
+  "inputSchema": {
+    "type": "object",
+    "properties": {}
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "return"
+    ],
+    "properties": {
+      "return": {
+        "type": "Tizen.Entity.Status",
+        "description": "Result wrapper returned by every action, carrying Success (whether the action was carried out) and Reason; Success is false with an 'unavailable:' reason when the app has no usable summary"
+      },
+      "screen": {
+        "type": "Tizen.Entity.ScreenSummary",
+        "description": "A short plain-text summary of what the app's current screen shows, present only when Success is true"
+      }
+    }
+  },
+  "details": {
+    "appid": "org.tizen.action-framework.service"
+  }
+}

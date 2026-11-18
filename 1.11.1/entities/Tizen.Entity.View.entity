@@ -1,0 +1,117 @@
+{
+  "typeName": "Tizen.Entity.View",
+  "description": "An on-screen UI element carrying its runtime Type, a human-readable Description, its screen and window bounds, focus and enabled state, and the App Entity annotation the app attached to it",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Type",
+      "Description",
+      "ScreenBounds",
+      "WindowBounds",
+      "IsFocused",
+      "IsEnabled",
+      "Annotation"
+    ],
+    "properties": {
+      "Type": {
+        "type": "string",
+        "x-summary": true,
+        "description": "Runtime type name of the UI actor, such as Button or ImageView"
+      },
+      "Description": {
+        "type": "string",
+        "x-summary": true,
+        "description": "Human-readable text describing the view, such as its label or content, set by the app"
+      },
+      "ScreenBounds": {
+        "type": "object",
+        "description": "A view's rectangle in absolute screen pixels, given as X and Y of its top-left corner plus Width and Height",
+        "required": [
+          "X",
+          "Y",
+          "Width",
+          "Height"
+        ],
+        "properties": {
+          "X": {
+            "type": "number",
+            "description": "Horizontal position of the view's top-left corner in absolute screen pixels"
+          },
+          "Y": {
+            "type": "number",
+            "description": "Vertical position of the view's top-left corner in absolute screen pixels"
+          },
+          "Width": {
+            "type": "number",
+            "description": "Width of the view's rectangle in screen pixels"
+          },
+          "Height": {
+            "type": "number",
+            "description": "Height of the view's rectangle in screen pixels"
+          }
+        }
+      },
+      "WindowBounds": {
+        "type": "object",
+        "description": "A view's rectangle in pixels relative to the owning window, given as X and Y of its top-left corner plus Width and Height",
+        "required": [
+          "X",
+          "Y",
+          "Width",
+          "Height"
+        ],
+        "properties": {
+          "X": {
+            "type": "number",
+            "description": "Horizontal position of the view's top-left corner in pixels relative to its window"
+          },
+          "Y": {
+            "type": "number",
+            "description": "Vertical position of the view's top-left corner in pixels relative to its window"
+          },
+          "Width": {
+            "type": "number",
+            "description": "Width of the view's rectangle in window pixels"
+          },
+          "Height": {
+            "type": "number",
+            "description": "Height of the view's rectangle in window pixels"
+          }
+        }
+      },
+      "IsFocused": {
+        "type": "boolean",
+        "x-summary": true,
+        "description": "True when this view currently has input focus"
+      },
+      "IsEnabled": {
+        "type": "boolean",
+        "description": "True when the view accepts interaction, false when disabled"
+      },
+      "Annotation": {
+        "type": "object",
+        "description": "The App Entity annotation an app attached to a view, carrying EntityId, EntityType, and EntityInfo for additional app-provided detail",
+        "required": [
+          "EntityId",
+          "EntityType",
+          "EntityInfo"
+        ],
+        "properties": {
+          "EntityId": {
+            "type": "string",
+            "description": "The app's own id of the entity the view represents, distinct from the View Id"
+          },
+          "EntityType": {
+            "type": "string",
+            "description": "Type name of the annotated entity, such as Tizen.Entity.Track"
+          },
+          "EntityInfo": {
+            "type": "string",
+            "description": "Additional app-provided detail about the entity, as text"
+          }
+        }
+      }
+    }
+  }
+}

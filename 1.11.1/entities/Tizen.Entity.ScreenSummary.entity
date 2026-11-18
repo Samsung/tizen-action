@@ -1,0 +1,19 @@
+{
+  "typeName": "Tizen.Entity.ScreenSummary",
+  "description": "A short plain-text summary of what the app's current screen shows",
+  "base": "Tizen.Entity",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Summary"
+    ],
+    "properties": {
+      "Summary": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 256,
+        "description": "One short sentence (at most two), ideally under 80 characters and never over 256, describing the current screen and its focused item, such as 'Live channel list. The News channel card is focused.'"
+      }
+    }
+  }
+}
