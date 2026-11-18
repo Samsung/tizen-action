@@ -1,0 +1,16 @@
+{
+  "typeName": "Tizen.Entity.IoTSelfDevice",
+  "description": "A smart-home device in the home this TV is registered to, carrying the Device fields plus DeviceCategory. Identity is tracked via inherited Id",
+  "base": "Tizen.Entity.Device",
+  "dataSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "DeviceCategory": {
+        "type": "string",
+        "x-summary": true,
+        "description": "Device kind such as Light or Switch, same values as DeviceQuery.DeviceCategory; absent when unknown"
+      }
+    }
+  }
+}

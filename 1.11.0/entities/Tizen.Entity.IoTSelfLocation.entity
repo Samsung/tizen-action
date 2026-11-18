@@ -1,0 +1,20 @@
+{
+  "typeName": "Tizen.Entity.IoTSelfLocation",
+  "description": "The SmartThings home this TV is registered to, carrying the IoTLocation fields plus its rooms. Identity is tracked via inherited Id",
+  "base": "Tizen.Entity.IoTLocation",
+  "dataSchema": {
+    "type": "object",
+    "required": [
+      "Rooms"
+    ],
+    "properties": {
+      "Rooms": {
+        "type": "array",
+        "description": "A room with Name within an IoTLocation. Identity is tracked via inherited Id",
+        "items": {
+          "type": "Tizen.Entity.IoTRoom"
+        }
+      }
+    }
+  }
+}
