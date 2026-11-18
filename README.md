@@ -27,19 +27,20 @@ example `1.10.2`). Nothing else at the top level is read by the toolchain.
 
 ## How the toolchain uses it
 
-`actionc-sync` (installed by `TizenActionToolchain`) reads the device's
-`tizen-action` version over `sdb`, fetches this repository, picks the matching
-directory and installs it into `~/.action-tools/data`:
+`actionc-sync` (installed by `TizenActionToolchain`) fetches this repository,
+picks the latest version published here - or the one pinned with `--target`,
+`ACTIONC_DATA_VERSION` or `DATA_VERSION` in `data-repo.conf` - and installs
+that directory into `~/.action-tools/data`:
 
 ```bash
-actionc-sync                 # match the attached device
-actionc-sync --target 1.10.2  # pick a version explicitly
+actionc-sync                 # latest published version
+actionc-sync --target 1.10.2  # pick a version explicitly, e.g. to match a device
 actionc-sync --list          # show the versions published here
 ```
 
-Version matching: the directory named exactly like the device version is used
-when it exists; otherwise the highest version with the same `<major>.<minor>`
-that is not newer than the device. A device on a `<major>.<minor>` line with no
+Version matching for a pinned version: the directory named exactly like it is
+used when it exists; otherwise the highest version with the same
+`<major>.<minor>` that is not newer than it. A version on a `<major>.<minor>` line with no
 directory here is an error (the toolchain's `REQUIREMENTS` pins compatibility
 to a minor version line).
 
